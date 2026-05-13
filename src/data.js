@@ -14,6 +14,7 @@ export const personalInfo = {
     phone2: "+91 9978 40 40 44",
     location: "Ahmedabad, Gujarat, Bharat"
   },
+  description: "Education Leader & Strategist | Driving Digital Learning & AI Innovation | Building Future-Ready Institutions",
   vidwan: "196935",
   orcid: "0000-0002-1763-9893",
   scopus: "55553871800",

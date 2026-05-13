@@ -21,15 +21,15 @@ const SectionHeader = ({ title, subtitle, dark = false }) => (
     initial={{ opacity: 0, x: -20 }}
     whileInView={{ opacity: 1, x: 0 }}
     viewport={{ once: true }}
-    className="mb-16"
+    className="mb-8"
   >
-    <span className="text-teal font-black uppercase tracking-[0.3em] text-xs mb-4 block">{subtitle}</span>
-    <h2 className={`executive-heading mb-8 leading-tight ${dark ? 'text-white' : 'text-navy'}`}>{title}</h2>
+    <span className="text-teal font-black uppercase tracking-[0.3em] text-xs mb-2 block">{subtitle}</span>
+    <h2 className={`executive-heading mb-4 leading-tight ${dark ? 'text-white' : 'text-navy'}`}>{title}</h2>
     <motion.div
       initial={{ width: 0 }}
       whileInView={{ width: 80 }}
       viewport={{ once: true }}
-      className="h-2 bg-teal"
+      className="h-1.5 bg-teal"
     ></motion.div>
   </motion.div>
 );
@@ -92,6 +92,14 @@ export default function Home() {
               <p className="text-2xl md:text-3xl text-white font-bold leading-relaxed tracking-wide uppercase italic">
                 {personalInfo.title}
               </p>
+
+            </motion.div>
+            <motion.div variants={itemVariants} className="flex items-center gap-6 mb-12">
+              <div className="w-12 h-2 bg-teal shadow-[0_0_15px_rgba(255,153,51,0.5)]"></div>
+              <p className="text-2xl md:text-3xl text-white font-bold leading-relaxed tracking-wide uppercase italic">
+                {personalInfo.description}
+              </p>
+
             </motion.div>
 
             <motion.div variants={itemVariants} className="flex flex-wrap gap-8">
@@ -132,9 +140,9 @@ export default function Home() {
       </section>
 
       {/* EXECUTIVE SUMMARY */}
-      <section id="summary" className="py-24 md:py-40 bg-white relative">
+      <section id="summary" className="py-16 md:py-20 bg-white relative">
         <div className="container mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-32 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -206,24 +214,24 @@ export default function Home() {
       </section>
 
       {/* SCHOLARLY IMPACT - PERFECTED DASHBOARD */}
-      <section className="py-20 bg-white relative">
+      <section className="py-12 bg-white relative">
         <div className="container mx-auto px-6 lg:px-12">
           <SectionHeader title="Scholarly Impact" subtitle="Research Analytics" />
-          
+
           <div className="grid lg:grid-cols-12 gap-8">
             {/* Column 1: Core Citation Metrics (Google Scholar) */}
             <div className="lg:col-span-5 space-y-6">
               <div className="bg-light-gray/20 p-8 rounded-[2rem] border-l-8 border-navy shadow-sm">
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 bg-navy rounded-xl flex items-center justify-center text-teal">
-                    <FaQuoteRight size={20} />
+                  <div className="w-14 h-14 bg-navy rounded-xl flex items-center justify-center text-teal">
+                    <FaQuoteRight size={24} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-navy leading-none">Google Scholar</h3>
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Global Citation Index</span>
+                    <h3 className="text-2xl font-black text-navy leading-none">Google Scholar</h3>
+                    <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Global Citation Index</span>
                   </div>
                 </div>
-                
+
                 <div className="grid grid-cols-3 gap-4">
                   {[
                     { label: "Citations", value: researchStats.googleScholar.citations, trend: `+${researchStats.googleScholar.citationsSince2021}` },
@@ -231,10 +239,10 @@ export default function Home() {
                     { label: "i10-index", value: researchStats.googleScholar.i10Index, trend: researchStats.googleScholar.i10IndexSince2021 }
                   ].map((m, i) => (
                     <div key={i} className="text-center">
-                      <div className="text-4xl font-black text-navy mb-1">{m.value}</div>
-                      <div className="text-[9px] font-black text-slate-400 uppercase tracking-tighter mb-2">{m.label}</div>
-                      <div className="inline-block px-2 py-1 bg-teal/10 rounded-md text-[10px] font-bold text-teal">
-                        {m.trend} <span className="opacity-50 font-medium">New</span>
+                      <div className="text-5xl font-black text-navy mb-1">{m.value}</div>
+                      <div className="text-xs font-black text-slate-500 uppercase tracking-widest mb-3">{m.label}</div>
+                      <div className="inline-block px-3 py-1.5 bg-teal/10 rounded-md text-xs font-black text-teal">
+                        {m.trend} <span className="opacity-60 font-bold ml-1 uppercase text-[10px]">New</span>
                       </div>
                     </div>
                   ))}
@@ -242,20 +250,20 @@ export default function Home() {
               </div>
 
               {/* Altmetrics Mini-Dashboard */}
-              <div className="bg-light-gray/20 p-6 rounded-[2rem] border-l-8 border-teal shadow-sm flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <FaNewspaper className="text-navy text-2xl" />
+              <div className="bg-light-gray/20 p-8 rounded-[2rem] border-l-8 border-teal shadow-sm flex items-center justify-between">
+                <div className="flex items-center gap-5">
+                  <FaNewspaper className="text-navy text-3xl" />
                   <div>
-                    <div className="text-2xl font-black text-navy">{researchStats.altmetrics.news}</div>
-                    <div className="text-[9px] font-bold text-slate-400 uppercase">News Mentions</div>
+                    <div className="text-3xl font-black text-navy">{researchStats.altmetrics.news}</div>
+                    <div className="text-xs font-bold text-slate-500 uppercase tracking-widest">News Mentions</div>
                   </div>
                 </div>
-                <div className="h-8 w-[1px] bg-slate-200"></div>
-                <div className="flex items-center gap-4">
-                  <div className="w-8 h-8 bg-navy/5 rounded-lg flex items-center justify-center text-navy font-black text-xs">M</div>
+                <div className="h-12 w-[1px] bg-slate-300"></div>
+                <div className="flex items-center gap-5">
+                  <div className="w-10 h-10 bg-navy text-teal rounded-lg flex items-center justify-center font-black text-sm">M</div>
                   <div>
-                    <div className="text-xl font-black text-navy">{researchStats.altmetrics.mendeley}</div>
-                    <div className="text-[9px] font-bold text-slate-400 uppercase">Mendeley</div>
+                    <div className="text-2xl font-black text-navy">{researchStats.altmetrics.mendeley}</div>
+                    <div className="text-xs font-bold text-slate-500 uppercase tracking-widest">Mendeley</div>
                   </div>
                 </div>
               </div>
@@ -263,25 +271,25 @@ export default function Home() {
 
             {/* Column 2: Publication Breakdown */}
             <div className="lg:col-span-4">
-              <div className="h-full bg-navy p-8 rounded-[2rem] text-white flex flex-col justify-between shadow-2xl relative overflow-hidden">
-                <div className="absolute -right-4 -top-4 w-24 h-24 bg-teal/20 rounded-full blur-2xl"></div>
+              <div className="h-full bg-navy p-10 rounded-[2rem] text-white flex flex-col justify-between shadow-2xl relative overflow-hidden">
+                <div className="absolute -right-4 -top-4 w-32 h-32 bg-teal/20 rounded-full blur-3xl"></div>
                 <div>
-                  <h3 className="text-2xl font-black mb-8 flex items-center gap-3">
+                  <h3 className="text-3xl font-black mb-10 flex items-center gap-4">
                     <FaBook className="text-teal" /> Publications
                   </h3>
-                  <div className="space-y-4">
+                  <div className="space-y-5">
                     {[
                       { label: "Journal Articles", count: researchStats.publications.journals, icon: <FaGlobe /> },
                       { label: "Conference Papers", count: researchStats.publications.conferences, icon: <FaChartBar /> },
                       { label: "Books Authored", count: researchStats.publications.books, icon: <FaAward /> },
                       { label: "Research Projects", count: researchStats.publications.projects, icon: <FaTasks /> }
                     ].map((p, i) => (
-                      <div key={i} className="flex justify-between items-center bg-white/5 p-4 rounded-xl border border-white/5 hover:border-teal/30 transition-all cursor-default">
-                        <div className="flex items-center gap-3">
-                          <span className="text-teal text-sm">{p.icon}</span>
-                          <span className="text-sm font-bold text-white/80">{p.label}</span>
+                      <div key={i} className="flex justify-between items-center bg-white/5 p-5 rounded-2xl border border-white/10 hover:border-teal/50 transition-all cursor-default">
+                        <div className="flex items-center gap-4">
+                          <span className="text-teal text-lg">{p.icon}</span>
+                          <span className="text-base font-bold text-white/90">{p.label}</span>
                         </div>
-                        <span className="text-2xl font-black text-teal">{p.count}</span>
+                        <span className="text-3xl font-black text-teal">{p.count}</span>
                       </div>
                     ))}
                   </div>
@@ -291,33 +299,33 @@ export default function Home() {
 
             {/* Column 3: Verification & IDs */}
             <div className="lg:col-span-3 space-y-6">
-              <div className="bg-white border-2 border-light-gray p-6 rounded-[2rem] shadow-sm">
-                <span className="text-[10px] font-black uppercase tracking-widest text-teal mb-4 block">Institutional Index</span>
-                <div className="flex items-end justify-between border-b border-light-gray pb-4 mb-4">
-                  <span className="text-xs font-bold text-slate-400">IRINS Verified</span>
-                  <span className="text-3xl font-black text-navy leading-none">{researchStats.irins.citations}</span>
+              <div className="bg-white border-2 border-light-gray p-8 rounded-[2rem] shadow-sm">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-teal mb-6 block">Institutional Index</span>
+                <div className="flex items-end justify-between border-b border-light-gray pb-6 mb-6">
+                  <span className="text-sm font-bold text-slate-500 uppercase tracking-widest">IRINS Verified</span>
+                  <span className="text-4xl font-black text-navy leading-none">{researchStats.irins.citations}</span>
                 </div>
                 <div className="flex items-end justify-between">
-                  <span className="text-xs font-bold text-slate-400">Crossref DOI</span>
-                  <span className="text-3xl font-black text-navy leading-none">{researchStats.irins.crossrefCitations}</span>
+                  <span className="text-sm font-bold text-slate-500 uppercase tracking-widest">Crossref DOI</span>
+                  <span className="text-4xl font-black text-navy leading-none">{researchStats.irins.crossrefCitations}</span>
                 </div>
               </div>
 
-              <div className="bg-navy p-6 rounded-[2rem] text-white flex flex-col gap-4">
+              <div className="bg-navy p-8 rounded-[2rem] text-white flex flex-col gap-6">
                 <div className="flex justify-between items-start">
                   <div className="flex flex-col">
-                    <span className="text-[9px] font-bold text-teal uppercase tracking-widest">ORCID ID</span>
-                    <span className="text-xs font-bold font-mono">{personalInfo.orcid}</span>
+                    <span className="text-xs font-black text-teal uppercase tracking-widest mb-2">ORCID ID</span>
+                    <span className="text-sm font-bold font-mono tracking-tighter text-white/90">{personalInfo.orcid}</span>
                   </div>
-                  <FaGlobe className="text-white/20" />
+                  <FaGlobe className="text-teal/30" size={20} />
                 </div>
                 <div className="h-[1px] w-full bg-white/10"></div>
                 <div className="flex justify-between items-start">
                   <div className="flex flex-col">
-                    <span className="text-[9px] font-bold text-teal uppercase tracking-widest">Vidwan Identifier</span>
-                    <span className="text-xs font-bold font-mono">{personalInfo.vidwan}</span>
+                    <span className="text-xs font-black text-teal uppercase tracking-widest mb-2">Vidwan Identifier</span>
+                    <span className="text-base font-black font-mono text-teal">{personalInfo.vidwan}</span>
                   </div>
-                  <FaAward className="text-white/20" />
+                  <FaAward className="text-teal/30" size={20} />
                 </div>
               </div>
             </div>
@@ -326,7 +334,7 @@ export default function Home() {
       </section>
 
       {/* PROFESSIONAL MEMBERSHIPS */}
-      <section className="py-24 bg-navy relative overflow-hidden">
+      <section className="py-16 bg-navy relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-teal/5 skew-x-12 translate-x-1/2"></div>
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <SectionHeader title="Professional Networks" subtitle="Memberships" dark />
@@ -348,13 +356,13 @@ export default function Home() {
       </section>
 
       {/* FEATURED SECTIONS PREVIEW */}
-      <section className="py-40 bg-white">
+      <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-6 lg:px-12">
-          <div className="text-center mb-24">
+          <div className="text-center mb-12">
             <span className="text-teal font-black uppercase tracking-[0.4em] text-xs mb-4 block">Navigation</span>
             <h2 className="executive-heading text-navy">Explore <span className="text-teal">Expertise</span></h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
             <motion.div
               whileHover={{ y: -20 }}
               initial={{ opacity: 0, y: 50 }}
@@ -427,15 +435,15 @@ export default function Home() {
       </section>
 
       {/* VISUAL JOURNEY - Bento Grid */}
-      <section className="py-40 bg-navy relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-navy relative overflow-hidden">
         <BentoBackground />
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
             <SectionHeader title="A Legacy in Motion" subtitle="Visual Journey" dark />
-            <Link to="/gallery" className="btn-ghost mb-8 border-white/20 text-white">Open Full Archive</Link>
+            <Link to="/gallery" className="btn-ghost mb-4 border-white/20 text-white">Open Full Archive</Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-6 h-auto md:h-[800px]">
+          <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 h-auto md:h-[700px]">
             {/* Main Feature */}
             <motion.div
               whileHover={{ scale: 0.98 }}
@@ -475,17 +483,17 @@ export default function Home() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="py-40 bg-white relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-white relative overflow-hidden">
         <div className="container mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="bg-navy p-8 md:p-32 text-white rounded-[2rem] md:rounded-[3rem] relative overflow-hidden text-center shadow-[0_50px_100px_-20px_rgba(28,43,57,0.5)]"
+            className="bg-navy p-8 md:p-20 text-white rounded-[2rem] md:rounded-[3rem] relative overflow-hidden text-center shadow-[0_50px_100px_-20px_rgba(28,43,57,0.5)]"
           >
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-teal/10 to-transparent"></div>
             <div className="relative z-10 max-w-4xl mx-auto">
-              <span className="text-teal font-black uppercase tracking-[0.5em] text-xs mb-8 block">Collaboration</span>
+              <span className="text-teal font-black uppercase tracking-[0.5em] text-xs mb-6 block">Collaboration</span>
               <h2 className="text-4xl md:text-7xl font-black text-white mb-12 leading-tight">
                 Let's Shape The <br /><span className="text-teal">Future Together</span>
               </h2>
