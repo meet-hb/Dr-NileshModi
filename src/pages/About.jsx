@@ -2,14 +2,15 @@ import { motion } from 'framer-motion';
 import { 
   FaGraduationCap, FaAward, FaArrowRight, FaShieldAlt, 
   FaBrain, FaLock, FaCloud, FaTasks, FaNetworkWired, FaDatabase, FaMicroscope, FaUniversity,
-  FaBullseye, FaLightbulb, FaGlobeAmericas, FaHandshake, FaCheckCircle, FaRocket, FaPuzzlePiece
+  FaBullseye, FaLightbulb, FaGlobeAmericas, FaHandshake, FaCheckCircle, FaRocket, FaPuzzlePiece,
+  FaChalkboardTeacher, FaHistory, FaBuilding, FaBriefcase, FaCertificate
 } from 'react-icons/fa';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { personalInfo, education, achievements, certifications } from '../data';
+import { personalInfo, education, achievements, certifications, experience, competencies } from '../data';
 import PageHero from '../components/PageHero';
 
 export default function About() {
@@ -18,149 +19,199 @@ export default function About() {
   return (
     <div className="bg-white">
       <PageHero 
-        title="Professional Vision" 
-        subtitle={aboutMe.intro}
+        title="Scholarly Profile" 
+        subtitle="Bridging Academic Vision with Technological Execution"
         breadcrumbs={[{ name: 'About', href: '/about' }]}
       />
 
-      <div className="container mx-auto px-6 lg:px-12 py-20">
-        {/* Core Philosophy Section */}
-        <section className="grid lg:grid-cols-2 gap-16 items-center mb-32">
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <span className="text-teal font-black uppercase tracking-[0.3em] text-xs mb-4 block">Institutional Transformation</span>
-            <h2 className="executive-heading text-4xl md:text-5xl text-navy mb-8 leading-tight">
-              Scaling <span className="text-teal">Digital Learning</span> Ecosystems
-            </h2>
-            <p className="text-xl text-slate-600 leading-relaxed mb-8 font-medium">
-              {aboutMe.subIntro}
-            </p>
-            <div className="p-8 bg-light-gray rounded-[2rem] border-l-8 border-teal shadow-sm italic text-navy font-bold">
-              "{aboutMe.collaboration}"
-            </div>
-          </motion.div>
-
-          <div className="grid grid-cols-1 gap-6">
-            <div className="bg-navy p-10 rounded-[2.5rem] text-white shadow-2xl relative overflow-hidden group">
-              <div className="absolute -right-6 -top-6 text-teal/10 text-9xl group-hover:rotate-12 transition-transform duration-700">
-                <FaBullseye />
+      <div className="container mx-auto px-6 lg:px-12 py-16">
+        {/* Executive Summary */}
+        <section className="mb-24">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="lg:col-span-7"
+            >
+              <span className="text-teal font-black uppercase tracking-[0.3em] text-xs mb-4 block">Executive Summary</span>
+              <h2 className="executive-heading text-4xl text-navy mb-8 leading-tight">
+                23+ Years of <span className="text-teal">Leadership</span> in Tech & Education
+              </h2>
+              <p className="text-lg text-slate-600 leading-relaxed font-medium mb-8">
+                {personalInfo.summary}
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                 {[
+                   { label: "NAAC Grade", value: "A++ (3.55)" },
+                   { label: "Publications", value: "105+" },
+                   { label: "Ph.D. Scholars", value: "18" }
+                 ].map((stat, i) => (
+                   <div key={i} className="bg-light-gray p-6 rounded-2xl border-b-4 border-teal">
+                     <span className="text-xs font-black text-slate-500 uppercase tracking-widest block mb-1">{stat.label}</span>
+                     <span className="text-2xl font-black text-navy">{stat.value}</span>
+                   </div>
+                 ))}
               </div>
-              <h3 className="text-2xl font-black mb-8 flex items-center gap-4 relative z-10">
-                <FaBullseye className="text-teal" /> What I Do
-              </h3>
-              <ul className="space-y-4 relative z-10">
-                {aboutMe.whatIDo.map((item, i) => (
-                  <li key={i} className="flex items-start gap-4 text-white/80 group-hover:text-white transition-colors">
-                    <FaCheckCircle className="text-teal mt-1 shrink-0" />
-                    <span className="font-bold text-sm leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            </motion.div>
+            
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="lg:col-span-5"
+            >
+               <div className="bg-navy p-10 rounded-[3rem] text-white shadow-2xl relative overflow-hidden group">
+                  <div className="absolute -right-6 -top-6 text-teal/10 text-9xl group-hover:rotate-12 transition-transform duration-700">
+                    <FaBullseye />
+                  </div>
+                  <h3 className="text-2xl font-black mb-8 flex items-center gap-4 relative z-10">
+                    <FaBullseye className="text-teal" /> Vision & Impact
+                  </h3>
+                  <p className="text-white/80 font-medium mb-8 relative z-10 leading-relaxed">
+                    {aboutMe.intro}
+                  </p>
+                  <ul className="space-y-4 relative z-10">
+                    {aboutMe.whatIDo.slice(0, 4).map((item, i) => (
+                      <li key={i} className="flex items-start gap-3 text-white/70 group-hover:text-white transition-colors">
+                        <FaCheckCircle className="text-teal mt-1 shrink-0" />
+                        <span className="font-bold text-xs leading-relaxed">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+               </div>
+            </motion.div>
           </div>
         </section>
 
-        {/* My Approach - Pillar Grid */}
-        <section className="mb-32">
-          <div className="text-center mb-16">
-             <span className="text-teal font-black uppercase tracking-[0.3em] text-xs mb-4 block">Methodology</span>
-             <h2 className="executive-heading text-4xl text-navy">My <span className="text-teal">Approach</span></h2>
-             <p className="max-w-3xl mx-auto mt-6 text-slate-500 font-medium">{aboutMe.approach.philosophy}</p>
+        {/* Core Competencies Grid */}
+        <section className="mb-24">
+          <div className="text-center mb-12">
+             <span className="text-teal font-black uppercase tracking-[0.3em] text-xs mb-4 block">Expertise</span>
+             <h2 className="executive-heading text-4xl text-navy">Core <span className="text-teal">Competencies</span></h2>
           </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {aboutMe.approach.pillars.map((pillar, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {competencies.map((comp, i) => (
               <motion.div 
                 key={i}
-                whileHover={{ y: -10 }}
-                className="professional-card p-12 text-center flex flex-col items-center group"
+                whileHover={{ y: -5 }}
+                className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-5 group hover:border-teal/30 hover:shadow-xl transition-all duration-300"
               >
-                <div className="w-16 h-16 bg-navy text-teal rounded-2xl flex items-center justify-center mb-8 group-hover:bg-teal group-hover:text-white transition-all duration-500">
-                  {i === 0 ? <FaBrain size={28} /> : i === 1 ? <FaRocket size={28} /> : <FaLightbulb size={28} />}
+                <div className="w-12 h-12 bg-light-gray rounded-xl flex items-center justify-center text-navy group-hover:bg-teal group-hover:text-white transition-colors shrink-0">
+                  <FaCertificate />
                 </div>
-                <h3 className="text-xl font-black text-navy mb-4 group-hover:text-teal transition-colors">{pillar.title}</h3>
-                <div className="w-12 h-1 bg-teal/20 mb-6 group-hover:w-20 transition-all duration-500"></div>
-                <p className="text-slate-400 font-bold uppercase tracking-widest text-[10px]">{pillar.description}</p>
+                <span className="text-sm font-black text-navy leading-tight">{comp}</span>
               </motion.div>
             ))}
           </div>
         </section>
 
-        {/* What Drives Me & Let's Connect */}
-        <section className="grid lg:grid-cols-2 gap-8 mb-32">
-          <div className="bg-light-gray/50 p-12 rounded-[3rem] border-2 border-slate-100 shadow-sm">
-             <h3 className="text-2xl font-black text-navy mb-8 flex items-center gap-4">
-                <FaGlobeAmericas className="text-teal" /> What Drives Me
-             </h3>
-             <div className="space-y-6">
-                {aboutMe.drivesMe.map((item, i) => (
-                  <div key={i} className="flex gap-6 items-center bg-white p-6 rounded-2xl shadow-sm border border-slate-50">
-                    <div className="w-10 h-10 bg-teal/10 rounded-xl flex items-center justify-center text-teal font-black">{i+1}</div>
-                    <p className="text-navy font-bold text-sm leading-tight">{item}</p>
-                  </div>
-                ))}
-             </div>
+        {/* Professional Experience - TIMELINE */}
+        <section className="mb-24">
+          <div className="flex items-center gap-4 mb-16">
+             <div className="w-12 h-2 bg-teal"></div>
+             <h2 className="text-3xl font-black text-navy uppercase tracking-widest">Professional Experience</h2>
           </div>
+          
+          <div className="space-y-12">
+            {experience.map((exp, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="relative pl-8 md:pl-12 border-l-4 border-slate-100 pb-12 last:pb-0"
+              >
+                <div className="absolute -left-[14px] top-0 w-6 h-6 bg-white border-4 border-teal rounded-full z-10"></div>
+                
+                <div className="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-[0_20px_50px_-20px_rgba(0,0,0,0.05)] border border-slate-50 hover:border-teal/20 transition-colors">
+                  <div className="flex flex-col md:flex-row justify-between items-start mb-8 gap-4">
+                    <div>
+                      <span className="px-4 py-1 bg-teal/10 text-teal text-[10px] font-black uppercase tracking-widest rounded-full mb-3 block w-fit">
+                        {exp.period}
+                      </span>
+                      <h3 className="text-2xl md:text-3xl font-black text-navy mb-2">{exp.title}</h3>
+                      <div className="flex items-center gap-2 text-slate-500 font-bold">
+                        <FaBuilding className="text-teal" />
+                        <span>{exp.institution}</span>
+                      </div>
+                    </div>
+                    <div className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2">
+                       <FaHistory /> {exp.location}
+                    </div>
+                  </div>
 
-          <div className="bg-navy p-12 rounded-[3rem] text-white flex flex-col justify-between shadow-2xl">
-             <div>
-                <h3 className="text-2xl font-black mb-8 flex items-center gap-4">
-                  <FaHandshake className="text-teal" /> Let's Connect
-                </h3>
-                <p className="text-white/60 mb-10 text-sm font-medium">If you’re working on these areas, I’d be glad to collaborate and exchange ideas.</p>
-                <div className="grid grid-cols-2 gap-4">
-                   {aboutMe.letsConnect.map((item, i) => (
-                     <div key={i} className="px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-[11px] font-black uppercase tracking-widest text-teal hover:bg-white/10 transition-colors">
-                       {item}
-                     </div>
-                   ))}
+                  {exp.concurrentRoles && (
+                    <div className="mb-10 p-6 bg-light-gray/50 rounded-2xl border-l-4 border-navy">
+                      <h4 className="text-xs font-black text-navy uppercase tracking-widest mb-4">Concurrent Directorships:</h4>
+                      <div className="grid sm:grid-cols-2 gap-3">
+                        {exp.concurrentRoles.map((role, idx) => (
+                          <div key={idx} className="flex items-center gap-2 text-xs font-bold text-slate-600">
+                             <div className="w-1.5 h-1.5 bg-teal rounded-full"></div>
+                             {role}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {exp.highlights && (
+                    <div className="space-y-4">
+                      <h4 className="text-xs font-black text-navy uppercase tracking-widest mb-2">Key Responsibilities & Achievements:</h4>
+                      {exp.highlights.map((highlight, idx) => (
+                        <div key={idx} className="flex gap-4">
+                          <FaCheckCircle className="text-teal mt-1 shrink-0" />
+                          <p className="text-slate-600 font-medium leading-relaxed">{highlight}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
-             </div>
-             <button className="btn-teal w-full mt-12 py-4 text-lg">Send Inquiry</button>
+              </motion.div>
+            ))}
           </div>
         </section>
 
         {/* Education & Certifications */}
-        <div className="grid lg:grid-cols-2 gap-16 mb-32">
+        <div className="grid lg:grid-cols-2 gap-12 mb-24">
           <section>
-            <div className="flex items-center gap-3 mb-12">
+            <div className="flex items-center gap-3 mb-10">
                <div className="w-10 h-2 bg-teal"></div>
-               <h2 className="text-2xl font-black text-navy uppercase tracking-widest">Education</h2>
+               <h2 className="text-2xl font-black text-navy uppercase tracking-widest">Academic Background</h2>
             </div>
-            <div className="space-y-8">
+            <div className="space-y-6">
               {education.map((edu, i) => (
-                <div key={i} className="professional-card p-10 hover:shadow-2xl transition-all duration-500 border-l-[10px]">
-                  <span className="text-teal font-black text-lg block mb-2">{edu.year}</span>
-                  <h3 className="text-2xl font-black text-navy mb-1">{edu.qualification}</h3>
-                  <p className="text-slate-400 font-bold text-sm mb-6 uppercase tracking-widest leading-relaxed">{edu.institution}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="px-4 py-1.5 bg-teal/10 text-teal text-[10px] font-black uppercase rounded-full shadow-sm">{edu.performance}</span>
-                    <FaGraduationCap size={24} className="text-slate-100" />
+                <div key={i} className="bg-white p-8 rounded-3xl border border-slate-100 hover:shadow-xl transition-all duration-500 group">
+                  <div className="flex justify-between items-start mb-4">
+                    <span className="text-teal font-black text-lg">{edu.year}</span>
+                    <FaGraduationCap size={24} className="text-slate-200 group-hover:text-teal transition-colors" />
                   </div>
+                  <h3 className="text-xl font-black text-navy mb-1">{edu.qualification}</h3>
+                  <p className="text-slate-400 font-bold text-xs mb-4 uppercase tracking-widest leading-relaxed">{edu.institution}</p>
+                  <span className="px-4 py-1.5 bg-light-gray text-navy text-[10px] font-black uppercase rounded-lg">{edu.performance}</span>
                 </div>
               ))}
             </div>
           </section>
 
           <section>
-            <div className="flex items-center gap-3 mb-12">
+            <div className="flex items-center gap-3 mb-10">
                <div className="w-10 h-2 bg-teal"></div>
-               <h2 className="text-2xl font-black text-navy uppercase tracking-widest">Certifications</h2>
+               <h2 className="text-2xl font-black text-navy uppercase tracking-widest">Professional Certifications</h2>
             </div>
             <div className="grid gap-6">
               {certifications.map((cert, i) => (
-                <div key={i} className="glass-card p-10 border-t-8 border-teal rounded-3xl">
-                  <div className="flex justify-between items-start mb-6">
-                    <h3 className="text-xl font-black text-navy max-w-[80%]">{cert.name}</h3>
-                    <FaAward className="text-teal" size={24} />
+                <div key={i} className="bg-navy p-8 rounded-3xl text-white relative overflow-hidden group">
+                  <div className="absolute -right-4 -top-4 text-white/5 text-8xl group-hover:rotate-12 transition-transform duration-700">
+                    <FaAward />
                   </div>
-                  <p className="text-teal font-bold text-sm mb-6 uppercase tracking-widest">{cert.body}</p>
-                  <div className="pt-6 border-t border-slate-100 flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-slate-400">
-                    <span className="bg-light-gray px-3 py-1 rounded">ID: {cert.id}</span>
-                    <span>{cert.date}</span>
+                  <div className="relative z-10">
+                    <h3 className="text-lg font-black mb-2 group-hover:text-teal transition-colors">{cert.name}</h3>
+                    <p className="text-teal font-bold text-xs mb-6 uppercase tracking-widest">{cert.body}</p>
+                    <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-white/40">
+                      <span>ID: {cert.id}</span>
+                      <span>{cert.date}</span>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -168,11 +219,11 @@ export default function About() {
           </section>
         </div>
 
-        {/* Achievements - SWIPER CAROUSEL */}
+        {/* Achievements Section - RESTORED PREVIOUS UI */}
         <section className="py-16 bg-light-gray/30 rounded-[3rem] overflow-hidden relative">
           <div className="text-center mb-12 px-6">
              <span className="text-teal font-black uppercase tracking-[0.3em] text-xs mb-4 block">Recognition</span>
-             <h2 className="executive-heading text-4xl text-navy">Key <span className="text-teal">Achievements</span></h2>
+             <h2 className="executive-heading text-4xl text-navy">Honors & <span className="text-teal">Awards</span></h2>
           </div>
           
           <div className="max-w-5xl mx-auto px-6">
