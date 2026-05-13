@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaSearchPlus, FaImage, FaMapMarkerAlt, FaCalendarAlt } from 'react-icons/fa';
+import { FaSearchPlus, FaImage, FaMapMarkerAlt } from 'react-icons/fa';
 import PageHero from '../components/PageHero';
 
 const galleryPhotos = [
@@ -17,12 +17,15 @@ const galleryPhotos = [
 export default function Gallery() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedImage, setSelectedImage] = useState(null);
+  const [visibleCount, setVisibleCount] = useState(6);
 
   const categories = ['All', 'Events', 'Milestones', 'Speaking'];
   
   const filteredPhotos = activeCategory === 'All' 
     ? galleryPhotos 
     : galleryPhotos.filter(photo => photo.category.toLowerCase() === activeCategory.toLowerCase());
+
+  const displayedPhotos = filteredPhotos.slice(0, visibleCount);
 
   return (
     <div>
@@ -41,17 +44,20 @@ export default function Gallery() {
           </div>
           <div className="flex flex-wrap gap-4">
              {categories.map((cat) => (
-               <button 
-                key={cat} 
-                onClick={() => setActiveCategory(cat)}
-                className={`px-8 py-3 border-2 text-[10px] font-black uppercase tracking-widest transition-all duration-300 ${
-                  activeCategory === cat 
-                  ? 'border-navy bg-navy text-white shadow-xl' 
-                  : 'border-slate-100 text-slate-400 hover:border-teal hover:text-teal'
-                }`}
-               >
-                 {cat}
-               </button>
+                <button 
+                 key={cat} 
+                 onClick={() => {
+                   setActiveCategory(cat);
+                   setVisibleCount(6);
+                 }}
+                 className={`px-8 py-3 border-2 text-[10px] font-black uppercase tracking-widest transition-all duration-300 ${
+                   activeCategory === cat 
+                   ? 'border-navy bg-navy text-white shadow-xl' 
+                   : 'border-slate-100 text-slate-400 hover:border-teal hover:text-teal'
+                 }`}
+                >
+                  {cat}
+                </button>
              ))}
           </div>
         </div>
@@ -59,10 +65,10 @@ export default function Gallery() {
         {/* Filtered Grid */}
         <motion.div 
           layout
-          className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8 min-h-[600px]"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[600px]"
         >
           <AnimatePresence mode="popLayout">
-            {filteredPhotos.map((photo) => (
+            {displayedPhotos.map((photo) => (
               <motion.div 
                 layout
                 key={photo.id}
@@ -70,7 +76,7 @@ export default function Gallery() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4 }}
-                className="break-inside-avoid relative group rounded-2xl overflow-hidden shadow-xl cursor-pointer"
+                className="relative group rounded-2xl overflow-hidden shadow-xl cursor-pointer"
                 onClick={() => setSelectedImage(photo)}
               >
                 <div className="bg-light-gray aspect-[3/4] relative">
@@ -98,6 +104,21 @@ export default function Gallery() {
           </AnimatePresence>
         </motion.div>
 
+        {/* Load More Button */}
+        {visibleCount < filteredPhotos.length && (
+          <div className="flex justify-center mt-20">
+            <button 
+              onClick={() => setVisibleCount(prev => prev + 6)}
+              className="group flex flex-col items-center gap-4 text-navy hover:text-teal transition-colors"
+            >
+              <span className="text-[10px] font-black uppercase tracking-[0.4em]">Load More Milestones</span>
+              <div className="w-12 h-12 rounded-full border-2 border-navy/10 group-hover:border-teal flex items-center justify-center transition-colors">
+                 <FaImage className="text-navy group-hover:text-teal transition-colors" />
+              </div>
+            </button>
+          </div>
+        )}
+
         {/* Lightbox Modal */}
         <AnimatePresence>
           {selectedImage && (
@@ -121,7 +142,7 @@ export default function Gallery() {
                 >
                   &times;
                 </button>
-                <div className="bg-white rounded-[2rem] overflow-hidden shadow-2xl">
+                <div className="bg-white rounded-[2rem] overflow-hidden shadow-2xl border border-white/10">
                    <img src="/photo-01.jpg" alt={selectedImage.title} className="w-full h-auto max-h-[70vh] object-contain bg-light-gray" />
                    <div className="p-10 bg-white">
                       <div className="flex items-center gap-4 mb-4">
