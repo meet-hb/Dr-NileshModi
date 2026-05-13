@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   FaGraduationCap, FaMicrophoneAlt, FaShieldAlt, FaBrain, FaLock, FaCloud, FaTasks, FaNetworkWired,
   FaChartBar, FaQuoteRight, FaNewspaper, FaShareAlt, FaChartLine, FaBook, FaGlobe,
-  FaArrowRight, FaAward, FaBookOpen, FaLightbulb, FaBriefcase
+  FaArrowRight, FaAward, FaBookOpen, FaLightbulb, FaBriefcase, FaCode, FaMicrochip, FaTools
 } from 'react-icons/fa';
 import { personalInfo, competencies, baouMilestones, researchStats, experience, education, memberships } from '../data';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -342,33 +342,45 @@ export default function Home() {
           <SectionHeader title="Global Professional Networks" subtitle="Elite Memberships" dark />
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
-            {memberships.map((member, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className="group relative h-full"
-              >
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-teal/50 to-transparent rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                <div className="relative flex items-center gap-5 p-7 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 hover:border-teal/30 transition-all duration-300 shadow-2xl h-full">
-                  <div className="w-14 h-14 bg-navy border border-white/10 rounded-xl flex items-center justify-center text-teal group-hover:bg-teal group-hover:text-white transition-all duration-500 shadow-inner shrink-0">
-                    <FaGlobe size={24} className="group-hover:rotate-12 transition-transform" />
-                  </div>
-                  <div className="flex-grow flex flex-col justify-center">
-                    <span className="text-white font-black text-sm leading-tight tracking-tight group-hover:text-teal transition-colors block">
-                      {member}
-                    </span>
-                    <div className="mt-3 flex items-center gap-2">
-                       <div className="w-6 h-0.5 bg-teal/30 group-hover:w-10 group-hover:bg-teal transition-all duration-500"></div>
-                       <span className="text-[9px] font-black uppercase tracking-[0.2em] text-white/20 group-hover:text-white/40">Verified Member</span>
+            {memberships.map((member, i) => {
+              const getMembershipIcon = (name) => {
+                if (name.includes('ACM')) return <FaCode />;
+                if (name.includes('CSI')) return <FaMicrochip />;
+                if (name.includes('IACSIT')) return <FaNetworkWired />;
+                if (name.includes('Engineers')) return <FaTools />;
+                if (name.includes('Security')) return <FaShieldAlt />;
+                if (name.includes('Innovation')) return <FaLightbulb />;
+                return <FaGlobe />;
+              };
+
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  className="group relative h-full"
+                >
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-teal/50 to-transparent rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                  <div className="relative flex items-center gap-5 p-7 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 hover:border-teal/30 transition-all duration-300 shadow-2xl h-full">
+                    <div className="w-14 h-14 bg-navy border border-white/10 rounded-xl flex items-center justify-center text-teal group-hover:bg-teal group-hover:text-white transition-all duration-500 shadow-inner shrink-0">
+                      <div className="text-2xl">{getMembershipIcon(member)}</div>
+                    </div>
+                    <div className="flex-grow flex flex-col justify-center">
+                      <span className="text-white font-black text-sm leading-tight tracking-tight group-hover:text-teal transition-colors block">
+                        {member}
+                      </span>
+                      <div className="mt-3 flex items-center gap-2">
+                         <div className="w-6 h-0.5 bg-teal/30 group-hover:w-10 group-hover:bg-teal transition-all duration-500"></div>
+                         <span className="text-[9px] font-black uppercase tracking-[0.2em] text-white/20 group-hover:text-white/40">Verified Member</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>

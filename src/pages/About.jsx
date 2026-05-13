@@ -3,7 +3,7 @@ import {
   FaGraduationCap, FaAward, FaArrowRight, FaShieldAlt, 
   FaBrain, FaLock, FaCloud, FaTasks, FaNetworkWired, FaDatabase, FaMicroscope, FaUniversity,
   FaBullseye, FaLightbulb, FaGlobeAmericas, FaHandshake, FaCheckCircle, FaRocket, FaPuzzlePiece,
-  FaChalkboardTeacher, FaHistory, FaBuilding, FaBriefcase, FaCertificate
+  FaChalkboardTeacher, FaHistory, FaBuilding, FaBriefcase, FaCertificate, FaUsers
 } from 'react-icons/fa';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules';
@@ -91,18 +91,33 @@ export default function About() {
              <h2 className="executive-heading text-4xl text-navy">Core <span className="text-teal">Competencies</span></h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {competencies.map((comp, i) => (
-              <motion.div 
-                key={i}
-                whileHover={{ y: -5 }}
-                className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-5 group hover:border-teal/30 hover:shadow-xl transition-all duration-300"
-              >
-                <div className="w-12 h-12 bg-light-gray rounded-xl flex items-center justify-center text-navy group-hover:bg-teal group-hover:text-white transition-colors shrink-0">
-                  <FaCertificate />
-                </div>
-                <span className="text-sm font-black text-navy leading-tight">{comp}</span>
-              </motion.div>
-            ))}
+            {competencies.map((comp, i) => {
+              const getIcon = (title) => {
+                if (title.includes('Intelligence') || title.includes('AI')) return <FaBrain />;
+                if (title.includes('Security')) return <FaLock />;
+                if (title.includes('Cloud')) return <FaCloud />;
+                if (title.includes('Project')) return <FaTasks />;
+                if (title.includes('Wireless') || title.includes('IoT')) return <FaNetworkWired />;
+                if (title.includes('Research')) return <FaMicroscope />;
+                if (title.includes('Data')) return <FaDatabase />;
+                if (title.includes('Administration') || title.includes('Academic')) return <FaUniversity />;
+                if (title.includes('Leadership')) return <FaUsers />;
+                return <FaCertificate />;
+              };
+
+              return (
+                <motion.div 
+                  key={i}
+                  whileHover={{ y: -5 }}
+                  className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-5 group hover:border-teal/30 hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="w-14 h-14 bg-light-gray rounded-xl flex items-center justify-center text-navy group-hover:bg-teal group-hover:text-white transition-colors shrink-0 shadow-inner">
+                    <div className="text-2xl">{getIcon(comp)}</div>
+                  </div>
+                  <span className="text-sm font-black text-navy leading-tight">{comp}</span>
+                </motion.div>
+              );
+            })}
           </div>
         </section>
 
