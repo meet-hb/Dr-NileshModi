@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+@import "swiper/css/effect-cards";
+
+@theme {
+  --color-navy: #002e58;
+  --color-teal: #FF9933;
+  --color-teal-dark: #00b89c;
+  --color-light-gray: #f2f2f2;
+  --color-primary: #002e58;
+  --color-accent: #FF9933;
+}
+
+:root {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #333333;
+  background-color: #ffffff;
+  font-size: 16px;
+  scroll-behavior: smooth;
+  letter-spacing: -0.01em;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Diagonal Dividers */
+.diagonal-divider {
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+}
+
+.diagonal-divider-reverse {
+  position: relative;
+  clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.diagonal-divider-both {
+  position: relative;
+  clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
+}
+
+/* Parallax Background */
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #002e58;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff9933;
+}
+
+/* Typography */
+p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem !important;
+  line-height: 1.8 !important;
+  color: #64748b !important; /* Slate-500 equivalent */
+  letter-spacing: 0.01em;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Inter', sans-serif;
+}
+
+.executive-heading {
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  font-size: 3rem !important; /* Standard Heading Size */
+}
+
+@media (max-width: 768px) {
+  .executive-heading {
+    font-size: 2rem !important;
+  }
+}
+
+/* Premium Glassmorphism */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 209, 178, 0.3);
+  transform: translateY(-5px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Gradient Text */
+.text-gradient {
+  background: linear-gradient(135deg, #002e58 0%, #FF9933 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animated Border */
+.animated-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-border::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #FF9933;
+  transition: width 0.3s ease;
+}
+
+.animated-border:hover::after {
+  width: 100%;
+}
+
+/* Modern Shadow */
+.premium-shadow {
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+}
+
+/* Cards */
+.professional-card {
+  background: white;
+  border-left: 5px solid #FF9933;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+/* Swiper Customization */
+.swiper-button-next, .swiper-button-prev {
+  color: #FF9933 !important;
+  background: white;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.swiper-button-next::after, .swiper-button-prev::after {
+  font-size: 18px !important;
+  font-weight: 900 !important;
+}
+
+.swiper-button-prev {
+  left: -25px !important;
+}
+
+.swiper-button-next {
+  right: -25px !important;
+}
+
+@media (max-width: 768px) {
+  .swiper-button-next, .swiper-button-prev {
+    display: none !important;
+  }
+}
+
+.swiper-pagination {
+  position: relative !important;
+  margin-top: 40px !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #FF9933 !important;
+  width: 30px !important;
+  border-radius: 5px !important;
+}
+
+.achievement-swiper .swiper-slide {
+  opacity: 1;
+  transition: all 0.5s ease;
+  transform: scale(1);
+}
+
+.achievement-swiper .swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Buttons */
+.btn-teal {
+  background-color: #ff9933;
+  color: white;
+  padding: 15px 35px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-teal:hover {
+  background-color: #3a8e7d;
+  box-shadow: 0 5px 15px rgba(79, 191, 168, 0.4);
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 12px 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.btn-ghost:hover {
+  background: white;
+  color: #002e58;
+}
