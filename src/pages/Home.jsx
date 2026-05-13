@@ -1,8 +1,9 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
-  FaArrowRight, FaAward, FaBookOpen, FaLightbulb, FaBriefcase,
-  FaGraduationCap, FaMicrophoneAlt, FaShieldAlt, FaBrain, FaLock, FaCloud, FaTasks, FaNetworkWired
+  FaGraduationCap, FaMicrophoneAlt, FaShieldAlt, FaBrain, FaLock, FaCloud, FaTasks, FaNetworkWired,
+  FaChartBar, FaQuoteRight, FaNewspaper, FaShareAlt, FaChartLine, FaBook, FaGlobe,
+  FaArrowRight, FaAward, FaBookOpen, FaLightbulb, FaBriefcase
 } from 'react-icons/fa';
 import { personalInfo, competencies, baouMilestones, researchStats, experience, education, memberships } from '../data';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -144,16 +145,16 @@ export default function Home() {
               <p className="mb-8 font-medium max-w-2xl text-dark leading-relaxed">
                 {personalInfo.summary}
               </p>
-              
+
               <div className="flex flex-wrap gap-4 mb-10">
                 <div className="px-4 py-2 bg-navy text-white rounded-lg text-xs font-bold flex items-center gap-2">
-                  <span className="opacity-60 text-[10px]">ORCID:</span> {personalInfo.orcid}
+                  <span className=" ">ORCID:</span> {personalInfo.orcid}
                 </div>
                 <div className="px-4 py-2 bg-teal text-navy rounded-lg text-xs font-bold flex items-center gap-2">
-                  <span className="opacity-60 text-[10px]">Vidwan:</span> {personalInfo.vidwan}
+                  <span className=" ">Vidwan:</span> {personalInfo.vidwan}
                 </div>
                 <div className="px-4 py-2 bg-light-gray text-navy rounded-lg text-xs font-bold flex items-center gap-2 border border-navy/10">
-                  <span className="opacity-60 text-[10px]">Scopus:</span> {personalInfo.scopus}
+                  <span className=" ">Scopus:</span> {personalInfo.scopus}
                 </div>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -204,64 +205,122 @@ export default function Home() {
         </div>
       </section>
 
-      {/* RESEARCH IMPACT METRICS */}
-      <section className="py-24 bg-light-gray/30">
+      {/* SCHOLARLY IMPACT - PERFECTED DASHBOARD */}
+      <section className="py-20 bg-white relative">
         <div className="container mx-auto px-6 lg:px-12">
-          <SectionHeader title="Research Impact" subtitle="Global Metrics" />
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Google Scholar */}
-            <motion.div 
-              whileHover={{ y: -5 }}
-              className="bg-white p-8 rounded-3xl shadow-xl border-b-4 border-navy"
-            >
-              <div className="flex justify-between items-center mb-8">
-                <h3 className="text-2xl font-black text-navy">Google Scholar</h3>
-                <div className="w-12 h-12 bg-navy/5 rounded-full flex items-center justify-center text-navy">
-                  <FaGraduationCap size={24} />
+          <SectionHeader title="Scholarly Impact" subtitle="Research Analytics" />
+          
+          <div className="grid lg:grid-cols-12 gap-8">
+            {/* Column 1: Core Citation Metrics (Google Scholar) */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="bg-light-gray/20 p-8 rounded-[2rem] border-l-8 border-navy shadow-sm">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-12 h-12 bg-navy rounded-xl flex items-center justify-center text-teal">
+                    <FaQuoteRight size={20} />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-black text-navy leading-none">Google Scholar</h3>
+                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Global Citation Index</span>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-3 gap-4">
+                  {[
+                    { label: "Citations", value: researchStats.googleScholar.citations, trend: `+${researchStats.googleScholar.citationsSince2021}` },
+                    { label: "h-index", value: researchStats.googleScholar.hIndex, trend: researchStats.googleScholar.hIndexSince2021 },
+                    { label: "i10-index", value: researchStats.googleScholar.i10Index, trend: researchStats.googleScholar.i10IndexSince2021 }
+                  ].map((m, i) => (
+                    <div key={i} className="text-center">
+                      <div className="text-4xl font-black text-navy mb-1">{m.value}</div>
+                      <div className="text-[9px] font-black text-slate-400 uppercase tracking-tighter mb-2">{m.label}</div>
+                      <div className="inline-block px-2 py-1 bg-teal/10 rounded-md text-[10px] font-bold text-teal">
+                        {m.trend} <span className="opacity-50 font-medium">New</span>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-              <div className="grid grid-cols-3 gap-4">
-                <div className="text-center p-4 bg-navy/5 rounded-2xl">
-                  <div className="text-3xl font-black text-navy">{researchStats.googleScholar.citations}</div>
-                  <div className="text-[10px] uppercase font-black tracking-widest text-slate-400">Citations</div>
-                </div>
-                <div className="text-center p-4 bg-navy/5 rounded-2xl">
-                  <div className="text-3xl font-black text-navy">{researchStats.googleScholar.hIndex}</div>
-                  <div className="text-[10px] uppercase font-black tracking-widest text-slate-400">h-index</div>
-                </div>
-                <div className="text-center p-4 bg-navy/5 rounded-2xl">
-                  <div className="text-3xl font-black text-navy">{researchStats.googleScholar.i10Index}</div>
-                  <div className="text-[10px] uppercase font-black tracking-widest text-slate-400">i10-index</div>
-                </div>
-              </div>
-            </motion.div>
 
-            {/* IRINS / Scopus */}
-            <motion.div 
-              whileHover={{ y: -5 }}
-              className="bg-white p-8 rounded-3xl shadow-xl border-b-4 border-teal"
-            >
-              <div className="flex justify-between items-center mb-8">
-                <h3 className="text-2xl font-black text-navy">IRINS / Scopus</h3>
-                <div className="w-12 h-12 bg-teal/5 rounded-full flex items-center justify-center text-teal">
-                  <FaBookOpen size={24} />
+              {/* Altmetrics Mini-Dashboard */}
+              <div className="bg-light-gray/20 p-6 rounded-[2rem] border-l-8 border-teal shadow-sm flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <FaNewspaper className="text-navy text-2xl" />
+                  <div>
+                    <div className="text-2xl font-black text-navy">{researchStats.altmetrics.news}</div>
+                    <div className="text-[9px] font-bold text-slate-400 uppercase">News Mentions</div>
+                  </div>
+                </div>
+                <div className="h-8 w-[1px] bg-slate-200"></div>
+                <div className="flex items-center gap-4">
+                  <div className="w-8 h-8 bg-navy/5 rounded-lg flex items-center justify-center text-navy font-black text-xs">M</div>
+                  <div>
+                    <div className="text-xl font-black text-navy">{researchStats.altmetrics.mendeley}</div>
+                    <div className="text-[9px] font-bold text-slate-400 uppercase">Mendeley</div>
+                  </div>
                 </div>
               </div>
-              <div className="grid grid-cols-3 gap-4">
-                <div className="text-center p-4 bg-teal/5 rounded-2xl">
-                  <div className="text-3xl font-black text-navy">{researchStats.irins.citations}</div>
-                  <div className="text-[10px] uppercase font-black tracking-widest text-slate-400">Citations</div>
-                </div>
-                <div className="text-center p-4 bg-teal/5 rounded-2xl">
-                  <div className="text-3xl font-black text-navy">{researchStats.irins.hIndex}</div>
-                  <div className="text-[10px] uppercase font-black tracking-widest text-slate-400">h-index</div>
-                </div>
-                <div className="text-center p-4 bg-teal/5 rounded-2xl">
-                  <div className="text-3xl font-black text-navy">{researchStats.irins.vidwanId}</div>
-                  <div className="text-[10px] uppercase font-black tracking-widest text-slate-400">Vidwan ID</div>
+            </div>
+
+            {/* Column 2: Publication Breakdown */}
+            <div className="lg:col-span-4">
+              <div className="h-full bg-navy p-8 rounded-[2rem] text-white flex flex-col justify-between shadow-2xl relative overflow-hidden">
+                <div className="absolute -right-4 -top-4 w-24 h-24 bg-teal/20 rounded-full blur-2xl"></div>
+                <div>
+                  <h3 className="text-2xl font-black mb-8 flex items-center gap-3">
+                    <FaBook className="text-teal" /> Publications
+                  </h3>
+                  <div className="space-y-4">
+                    {[
+                      { label: "Journal Articles", count: researchStats.publications.journals, icon: <FaGlobe /> },
+                      { label: "Conference Papers", count: researchStats.publications.conferences, icon: <FaChartBar /> },
+                      { label: "Books Authored", count: researchStats.publications.books, icon: <FaAward /> },
+                      { label: "Research Projects", count: researchStats.publications.projects, icon: <FaTasks /> }
+                    ].map((p, i) => (
+                      <div key={i} className="flex justify-between items-center bg-white/5 p-4 rounded-xl border border-white/5 hover:border-teal/30 transition-all cursor-default">
+                        <div className="flex items-center gap-3">
+                          <span className="text-teal text-sm">{p.icon}</span>
+                          <span className="text-sm font-bold text-white/80">{p.label}</span>
+                        </div>
+                        <span className="text-2xl font-black text-teal">{p.count}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
+
+            {/* Column 3: Verification & IDs */}
+            <div className="lg:col-span-3 space-y-6">
+              <div className="bg-white border-2 border-light-gray p-6 rounded-[2rem] shadow-sm">
+                <span className="text-[10px] font-black uppercase tracking-widest text-teal mb-4 block">Institutional Index</span>
+                <div className="flex items-end justify-between border-b border-light-gray pb-4 mb-4">
+                  <span className="text-xs font-bold text-slate-400">IRINS Verified</span>
+                  <span className="text-3xl font-black text-navy leading-none">{researchStats.irins.citations}</span>
+                </div>
+                <div className="flex items-end justify-between">
+                  <span className="text-xs font-bold text-slate-400">Crossref DOI</span>
+                  <span className="text-3xl font-black text-navy leading-none">{researchStats.irins.crossrefCitations}</span>
+                </div>
+              </div>
+
+              <div className="bg-navy p-6 rounded-[2rem] text-white flex flex-col gap-4">
+                <div className="flex justify-between items-start">
+                  <div className="flex flex-col">
+                    <span className="text-[9px] font-bold text-teal uppercase tracking-widest">ORCID ID</span>
+                    <span className="text-xs font-bold font-mono">{personalInfo.orcid}</span>
+                  </div>
+                  <FaGlobe className="text-white/20" />
+                </div>
+                <div className="h-[1px] w-full bg-white/10"></div>
+                <div className="flex justify-between items-start">
+                  <div className="flex flex-col">
+                    <span className="text-[9px] font-bold text-teal uppercase tracking-widest">Vidwan Identifier</span>
+                    <span className="text-xs font-bold font-mono">{personalInfo.vidwan}</span>
+                  </div>
+                  <FaAward className="text-white/20" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

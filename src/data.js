@@ -12,11 +12,11 @@ export const personalInfo = {
     website: "https://drnileshmodi.in",
     phone1: "+91 966 26 40 500",
     phone2: "+91 9978 40 40 44",
-    location: "Ahmedabad, Gujarat, Bharat",
-    vidwan: "196935",
-    orcid: "0000-0002-1763-9893",
-    scopus: "55553871800"
+    location: "Ahmedabad, Gujarat, Bharat"
   },
+  vidwan: "196935",
+  orcid: "0000-0002-1763-9893",
+  scopus: "55553871800",
   summary: "Prof. (Dr.) Nileshkumar Krushnalal Modi is a distinguished academic leader and researcher with over 23 years of experience across academia, research, and the IT industry. As a Professor and Director at Dr. Babasaheb Ambedkar Open University (BAOU), he has been instrumental in securing the prestigious NAAC A++ accreditation. His expertise spans Cyber Security, Artificial Intelligence, and Cloud Computing. He is a Certified Ethical Hacker (CEH) and a PRINCE2® certified professional, with a prolific research record including 105+ publications and multiple patents in the field of Computer Science."
 };
 
@@ -142,22 +142,40 @@ export const baouMilestones = [
 export const researchStats = {
   patent: "Designing Data Integration Model for Data Resource System (January 2025) — Published by Office of Controller General of Patents, India",
   scholars: "18 Ph.D. and 7 M.Phil. scholars supervised successfully",
-  totalPublications: 105,
+  totalPublications: 84, // 54 + 2 + 23 + 1 + 4
+  publications: {
+    journals: 54,
+    books: 2,
+    conferences: 23,
+    projects: 4,
+    others: 1
+  },
   googleScholar: {
     citations: 233,
+    citationsSince2021: 91,
     hIndex: 8,
-    i10Index: 5
+    hIndexSince2021: 5,
+    i10Index: 5,
+    i10IndexSince2021: 2
   },
   irins: {
     citations: 178,
     hIndex: 5,
+    crossrefCitations: 84,
     vidwanId: "196935"
   },
+  altmetrics: {
+    news: 9,
+    facebook: 1,
+    twitter: 1,
+    mendeley: 1055,
+    googlePlus: 1
+  },
   stats: [
-    { label: "International Journals", count: 52 },
-    { label: "National Journals", count: 18 },
-    { label: "International Conferences", count: 12 },
-    { label: "National Conferences", count: 23 }
+    { label: "Journal Articles", count: 54 },
+    { label: "Books Authored", count: 2 },
+    { label: "Conference Papers", count: 23 },
+    { label: "Research Projects", count: 4 }
   ]
 };
 
