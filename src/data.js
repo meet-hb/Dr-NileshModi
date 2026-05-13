@@ -18,7 +18,38 @@ export const personalInfo = {
   vidwan: "196935",
   orcid: "0000-0002-1763-9893",
   scopus: "55553871800",
-  summary: "Prof. (Dr.) Nileshkumar Krushnalal Modi is a distinguished academic leader and researcher with over 23 years of experience across academia, research, and the IT industry. As a Professor and Director at Dr. Babasaheb Ambedkar Open University (BAOU), he has been instrumental in securing the prestigious NAAC A++ accreditation. His expertise spans Cyber Security, Artificial Intelligence, and Cloud Computing. He is a Certified Ethical Hacker (CEH) and a PRINCE2® certified professional, with a prolific research record including 105+ publications and multiple patents in the field of Computer Science."
+  summary: "Prof. (Dr.) Nileshkumar Krushnalal Modi is a distinguished academic leader and researcher with over 23 years of experience across academia, research, and the IT industry. As a Professor and Director at Dr. Babasaheb Ambedkar Open University (BAOU), he has been instrumental in securing the prestigious NAAC A++ accreditation. His expertise spans Cyber Security, Artificial Intelligence, and Cloud Computing. He is a Certified Ethical Hacker (CEH) and a PRINCE2® certified professional, with a prolific research record including 105+ publications and multiple patents in the field of Computer Science.",
+  aboutMe: {
+    intro: "I work at the intersection of education, technology, and impact, designing systems that don’t just deliver learning, but transform how institutions think, operate, and grow.",
+    subIntro: "Over the years, I have been deeply involved in building and scaling digital learning ecosystems—from AI-enabled Learning Management Systems and virtual labs to intelligent assessment and analytics platforms. My focus has always been simple: Make learning more accessible, more intelligent, and more outcome-driven.",
+    collaboration: "As part of my work with Dr. Babasaheb Ambedkar Open University and through my association with IT Industry, I have contributed to initiatives that bridge academic vision with technological execution helping institutions evolve into future-ready, digitally empowered ecosystems.",
+    whatIDo: [
+      "Drive AI-powered digital learning transformation",
+      "Design and implement scalable LMS and learning platforms",
+      "Build data-driven assessment and analytics systems",
+      "Enable institutional innovation and capacity building",
+      "Lead strategic collaborations and ecosystem development"
+    ],
+    approach: {
+      philosophy: "I believe the future of education lies in intelligent, personalized, and experiential learning. Technology is not the goal, it is the enabler of meaningful learning outcomes.",
+      pillars: [
+        { title: "Strategic thinking", description: "What to build and why" },
+        { title: "Execution capability", description: "How to build and scale" },
+        { title: "Innovation mindset", description: "What’s next" }
+      ]
+    },
+    drivesMe: [
+      "Expanding access to quality education at scale",
+      "Creating impact through technology-enabled learning",
+      "Building systems that are sustainable, inclusive, and future-ready"
+    ],
+    letsConnect: [
+      "AI in Education",
+      "Digital Learning Transformation",
+      "EdTech Innovation",
+      "Institutional Development"
+    ]
+  }
 };
 
 export const competencies = [
