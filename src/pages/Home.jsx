@@ -4,7 +4,7 @@ import {
   FaArrowRight, FaAward, FaBookOpen, FaLightbulb, FaBriefcase,
   FaGraduationCap, FaMicrophoneAlt, FaShieldAlt, FaBrain, FaLock, FaCloud, FaTasks, FaNetworkWired
 } from 'react-icons/fa';
-import { personalInfo, competencies, baouMilestones, researchStats, experience, education } from '../data';
+import { personalInfo, competencies, baouMilestones, researchStats, experience, education, memberships } from '../data';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/css';
@@ -74,12 +74,12 @@ export default function Home() {
               Distinguished Academic Leader
             </motion.span>
 
-            <h1 className="text-5xl md:text-8xl font-black text-white leading-none mb-10">
+            <h1 className="text-4xl md:text-7xl font-black text-white leading-none mb-10 md:whitespace-nowrap">
               {personalInfo.name.split(' ').map((word, i) => (
                 <motion.span
                   key={i}
                   variants={itemVariants}
-                  className="inline-block mr-4 hover:text-teal transition-colors duration-500 cursor-default"
+                  className="inline-block mr-3 md:mr-4 hover:text-teal transition-colors duration-500 cursor-default"
                 >
                   {word}
                 </motion.span>
@@ -105,7 +105,7 @@ export default function Home() {
         </div>
 
         {/* Scroll Indicator - Modern Mouse */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2 }}
@@ -114,13 +114,13 @@ export default function Home() {
         >
           <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40 group-hover:text-teal transition-colors">Scroll</span>
           <div className="w-[26px] h-[45px] border-2 border-white/20 group-hover:border-teal transition-colors rounded-full p-1.5 flex justify-center shadow-[0_0_20px_rgba(255,153,51,0.1)]">
-            <motion.div 
-              animate={{ 
+            <motion.div
+              animate={{
                 y: [0, 15, 0],
                 opacity: [1, 0, 1]
               }}
-              transition={{ 
-                repeat: Infinity, 
+              transition={{
+                repeat: Infinity,
                 duration: 2,
                 ease: "easeInOut"
               }}
@@ -141,9 +141,21 @@ export default function Home() {
               transition={{ duration: 1 }}
             >
               <SectionHeader title="Visionary Leadership In Technology" subtitle="Executive Summary" />
-              <p className="mb-10 font-medium max-w-2xl">
+              <p className="mb-8 font-medium max-w-2xl text-dark leading-relaxed">
                 {personalInfo.summary}
               </p>
+              
+              <div className="flex flex-wrap gap-4 mb-10">
+                <div className="px-4 py-2 bg-navy text-white rounded-lg text-xs font-bold flex items-center gap-2">
+                  <span className="opacity-60 text-[10px]">ORCID:</span> {personalInfo.orcid}
+                </div>
+                <div className="px-4 py-2 bg-teal text-navy rounded-lg text-xs font-bold flex items-center gap-2">
+                  <span className="opacity-60 text-[10px]">Vidwan:</span> {personalInfo.vidwan}
+                </div>
+                <div className="px-4 py-2 bg-light-gray text-navy rounded-lg text-xs font-bold flex items-center gap-2 border border-navy/10">
+                  <span className="opacity-60 text-[10px]">Scopus:</span> {personalInfo.scopus}
+                </div>
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   { title: "Cyber Security & Ethical Hacking", icon: <FaShieldAlt /> },
@@ -192,31 +204,84 @@ export default function Home() {
         </div>
       </section>
 
-      {/* IMPACT STATS */}
-      <section className="py-24 md:py-32 bg-navy relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+      {/* RESEARCH IMPACT METRICS */}
+      <section className="py-24 bg-light-gray/30">
+        <div className="container mx-auto px-6 lg:px-12">
+          <SectionHeader title="Research Impact" subtitle="Global Metrics" />
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Google Scholar */}
+            <motion.div 
+              whileHover={{ y: -5 }}
+              className="bg-white p-8 rounded-3xl shadow-xl border-b-4 border-navy"
+            >
+              <div className="flex justify-between items-center mb-8">
+                <h3 className="text-2xl font-black text-navy">Google Scholar</h3>
+                <div className="w-12 h-12 bg-navy/5 rounded-full flex items-center justify-center text-navy">
+                  <FaGraduationCap size={24} />
+                </div>
+              </div>
+              <div className="grid grid-cols-3 gap-4">
+                <div className="text-center p-4 bg-navy/5 rounded-2xl">
+                  <div className="text-3xl font-black text-navy">{researchStats.googleScholar.citations}</div>
+                  <div className="text-[10px] uppercase font-black tracking-widest text-slate-400">Citations</div>
+                </div>
+                <div className="text-center p-4 bg-navy/5 rounded-2xl">
+                  <div className="text-3xl font-black text-navy">{researchStats.googleScholar.hIndex}</div>
+                  <div className="text-[10px] uppercase font-black tracking-widest text-slate-400">h-index</div>
+                </div>
+                <div className="text-center p-4 bg-navy/5 rounded-2xl">
+                  <div className="text-3xl font-black text-navy">{researchStats.googleScholar.i10Index}</div>
+                  <div className="text-[10px] uppercase font-black tracking-widest text-slate-400">i10-index</div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* IRINS / Scopus */}
+            <motion.div 
+              whileHover={{ y: -5 }}
+              className="bg-white p-8 rounded-3xl shadow-xl border-b-4 border-teal"
+            >
+              <div className="flex justify-between items-center mb-8">
+                <h3 className="text-2xl font-black text-navy">IRINS / Scopus</h3>
+                <div className="w-12 h-12 bg-teal/5 rounded-full flex items-center justify-center text-teal">
+                  <FaBookOpen size={24} />
+                </div>
+              </div>
+              <div className="grid grid-cols-3 gap-4">
+                <div className="text-center p-4 bg-teal/5 rounded-2xl">
+                  <div className="text-3xl font-black text-navy">{researchStats.irins.citations}</div>
+                  <div className="text-[10px] uppercase font-black tracking-widest text-slate-400">Citations</div>
+                </div>
+                <div className="text-center p-4 bg-teal/5 rounded-2xl">
+                  <div className="text-3xl font-black text-navy">{researchStats.irins.hIndex}</div>
+                  <div className="text-[10px] uppercase font-black tracking-widest text-slate-400">h-index</div>
+                </div>
+                <div className="text-center p-4 bg-teal/5 rounded-2xl">
+                  <div className="text-3xl font-black text-navy">{researchStats.irins.vidwanId}</div>
+                  <div className="text-[10px] uppercase font-black tracking-widest text-slate-400">Vidwan ID</div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* PROFESSIONAL MEMBERSHIPS */}
+      <section className="py-24 bg-navy relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-teal/5 skew-x-12 translate-x-1/2"></div>
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-20">
-            {[
-              { count: "105+", label: "Research Publications" },
-              { count: "23+", label: "Years Experience" },
-              { count: "18+", label: "Ph.D. Scholars" },
-              { count: "A++", label: "NAAC Grade" }
-            ].map((stat, i) => (
+          <SectionHeader title="Professional Networks" subtitle="Memberships" dark />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {memberships.map((member, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className="text-center group cursor-default"
+                className="flex items-center gap-4 p-6 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-colors group"
               >
-                <div className="text-5xl md:text-7xl font-black text-white mb-4 group-hover:text-teal transition-all duration-500 transform group-hover:scale-110">
-                  {stat.count}
-                </div>
-                <div className="text-[10px] text-teal uppercase font-black tracking-[0.4em] opacity-50 group-hover:opacity-100 transition-opacity">
-                  {stat.label}
-                </div>
+                <div className="w-2 h-2 rounded-full bg-teal shadow-[0_0_10px_#FF9933]"></div>
+                <span className="text-white font-medium group-hover:text-teal transition-colors">{member}</span>
               </motion.div>
             ))}
           </div>

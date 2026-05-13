@@ -12,9 +12,12 @@ export const personalInfo = {
     website: "https://drnileshmodi.in",
     phone1: "+91 966 26 40 500",
     phone2: "+91 9978 40 40 44",
-    location: "Ahmedabad, Gujarat, Bharat"
+    location: "Ahmedabad, Gujarat, Bharat",
+    vidwan: "196935",
+    orcid: "0000-0002-1763-9893",
+    scopus: "55553871800"
   },
-  summary: "Distinguished academic and researcher with over 23 years of experience spanning academia, research, and the IT industry. Holds a Doctorate in Information Security (Computer Science) with a proven track record of leadership in Cyber Security, Artificial Intelligence, Software Project Management, and Open Distance Learning & Online Learning. As Director of multiple centres at Dr. Babasaheb Ambedkar Open University (BAOU), instrumental in achieving the highest A++ NAAC grade with 3.55 CGPA — a first for any State Open University in India. Author of 105 research publications in international and national journals and conferences. Recipient of prestigious national awards from AICTE and CSI."
+  summary: "Prof. (Dr.) Nileshkumar Krushnalal Modi is a distinguished academic leader and researcher with over 23 years of experience across academia, research, and the IT industry. As a Professor and Director at Dr. Babasaheb Ambedkar Open University (BAOU), he has been instrumental in securing the prestigious NAAC A++ accreditation. His expertise spans Cyber Security, Artificial Intelligence, and Cloud Computing. He is a Certified Ethical Hacker (CEH) and a PRINCE2® certified professional, with a prolific research record including 105+ publications and multiple patents in the field of Computer Science."
 };
 
 export const competencies = [
@@ -137,9 +140,19 @@ export const baouMilestones = [
 ];
 
 export const researchStats = {
-  patent: "Designing Data Integration Model for Data Resource System — Published by Office of Controller General of Patents, India",
+  patent: "Designing Data Integration Model for Data Resource System (January 2025) — Published by Office of Controller General of Patents, India",
   scholars: "18 Ph.D. and 7 M.Phil. scholars supervised successfully",
   totalPublications: 105,
+  googleScholar: {
+    citations: 233,
+    hIndex: 8,
+    i10Index: 5
+  },
+  irins: {
+    citations: 178,
+    hIndex: 5,
+    vidwanId: "196935"
+  },
   stats: [
     { label: "International Journals", count: 52 },
     { label: "National Journals", count: 18 },
@@ -147,6 +160,15 @@ export const researchStats = {
     { label: "National Conferences", count: 23 }
   ]
 };
+
+export const memberships = [
+  "Association for Computing Machinery (ACM)",
+  "Computer Society of India (CSI)",
+  "International Association of Computer Science and Information Technology (IACSIT)",
+  "International Association of Engineers (IAENG)",
+  "Data Security Council of India (DSCI)",
+  "Gujarat Innovation Society (GIS)"
+];
 
 export const skills = {
   platforms: ["Red Hat Linux", "Fedora", "CentOS", "Ubuntu", "Debian", "Windows Server 2019/2022"],
