@@ -336,19 +336,37 @@ export default function Home() {
       {/* PROFESSIONAL MEMBERSHIPS */}
       <section className="py-16 bg-navy relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-teal/5 skew-x-12 translate-x-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-teal/10 rounded-full blur-[120px] -translate-x-1/2 translate-y-1/2"></div>
+        
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
-          <SectionHeader title="Professional Networks" subtitle="Memberships" dark />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <SectionHeader title="Global Professional Networks" subtitle="Elite Memberships" dark />
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
             {memberships.map((member, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="flex items-center gap-4 p-6 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-colors group"
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="group relative h-full"
               >
-                <div className="w-2 h-2 rounded-full bg-teal shadow-[0_0_10px_#FF9933]"></div>
-                <span className="text-white font-medium group-hover:text-teal transition-colors">{member}</span>
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-teal/50 to-transparent rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                <div className="relative flex items-center gap-5 p-7 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 hover:border-teal/30 transition-all duration-300 shadow-2xl h-full">
+                  <div className="w-14 h-14 bg-navy border border-white/10 rounded-xl flex items-center justify-center text-teal group-hover:bg-teal group-hover:text-white transition-all duration-500 shadow-inner shrink-0">
+                    <FaGlobe size={24} className="group-hover:rotate-12 transition-transform" />
+                  </div>
+                  <div className="flex-grow flex flex-col justify-center">
+                    <span className="text-white font-black text-sm leading-tight tracking-tight group-hover:text-teal transition-colors block">
+                      {member}
+                    </span>
+                    <div className="mt-3 flex items-center gap-2">
+                       <div className="w-6 h-0.5 bg-teal/30 group-hover:w-10 group-hover:bg-teal transition-all duration-500"></div>
+                       <span className="text-[9px] font-black uppercase tracking-[0.2em] text-white/20 group-hover:text-white/40">Verified Member</span>
+                    </div>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
