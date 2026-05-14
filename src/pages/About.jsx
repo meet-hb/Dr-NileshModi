@@ -102,7 +102,6 @@ export default function About() {
                 if (title.includes('Leadership')) return <FaUsers />;
                 return <FaCertificate />;
               };
-
               return (
                 <motion.div
                   key={i}
