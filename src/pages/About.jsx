@@ -3,14 +3,15 @@ import {
   FaGraduationCap, FaAward, FaArrowRight, FaShieldAlt,
   FaBrain, FaLock, FaCloud, FaTasks, FaNetworkWired, FaDatabase, FaMicroscope, FaUniversity,
   FaBullseye, FaLightbulb, FaGlobeAmericas, FaHandshake, FaCheckCircle, FaRocket, FaPuzzlePiece,
-  FaChalkboardTeacher, FaHistory, FaBuilding, FaBriefcase, FaCertificate, FaUsers
+  FaChalkboardTeacher, FaHistory, FaBuilding, FaBriefcase, FaCertificate, FaUsers,
+  FaCalendarAlt, FaGlobe, FaUserFriends, FaLanguage, FaHeart, FaMapMarkerAlt, FaPhone, FaEnvelope, FaQuoteLeft
 } from 'react-icons/fa';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { personalInfo, education, achievements, certifications, experience, competencies } from '../data';
+import { personalInfo, education, achievements, certifications, experience, competencies, personalDetails, references, declaration } from '../data';
 import PageHero from '../components/PageHero';
 
 export default function About() {
@@ -273,6 +274,103 @@ export default function About() {
                 </SwiperSlide>
               ))}
             </Swiper>
+          </div>
+        </section>
+        {/* Personal Background & Declaration */}
+        <section className="mb-24">
+          <div className="grid lg:grid-cols-12 gap-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="lg:col-span-8"
+            >
+              <div className="flex items-center gap-3 mb-10">
+                <div className="w-10 h-2 bg-teal"></div>
+                <h2 className="text-2xl font-black text-navy uppercase tracking-widest">Personal Profile</h2>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-6">
+                {[
+                  { icon: <FaCalendarAlt />, label: "Date of Birth", value: personalDetails.dob },
+                  { icon: <FaGlobe />, label: "Nationality", value: personalDetails.nationality },
+                  { icon: <FaUserFriends />, label: "Marital Status", value: personalDetails.maritalStatus },
+                  { icon: <FaLanguage />, label: "Languages", value: personalDetails.languages.join(", ") },
+                  { icon: <FaHeart />, label: "Hobbies", value: personalDetails.hobbies.join(", ") },
+                  { icon: <FaMapMarkerAlt />, label: "Address", value: personalDetails.address },
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-4 p-6 bg-light-gray/50 rounded-2xl border border-slate-100 hover:border-teal/30 transition-all group">
+                    <div className="text-teal text-xl mt-1 group-hover:scale-110 transition-transform">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-1">{item.label}</span>
+                      <span className="text-sm font-bold text-navy leading-relaxed">{item.value}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="lg:col-span-4"
+            >
+              <div className="h-full bg-navy p-10 rounded-[3rem] text-white flex flex-col justify-center relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-8 opacity-10 text-9xl group-hover:rotate-12 transition-transform duration-700">
+                  <FaQuoteLeft />
+                </div>
+                <FaQuoteLeft className="text-teal text-4xl mb-8" />
+                <p className="text-xl font-bold leading-relaxed mb-8 relative z-10 italic">
+                  "{declaration}"
+                </p>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-1 bg-teal"></div>
+                  <span className="text-sm font-black uppercase tracking-widest text-teal">{personalInfo.name}</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Professional References */}
+        <section className="mb-24">
+          <div className="text-center mb-16">
+            <span className="text-teal font-black uppercase tracking-[0.3em] text-xs mb-4 block">Endorsements</span>
+            <h2 className="executive-heading text-4xl text-navy">Professional <span className="text-teal">References</span></h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {references.map((ref, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:border-teal/20 transition-all group relative overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 w-24 h-24 bg-light-gray rounded-bl-[4rem] -mr-8 -mt-8 group-hover:bg-teal/10 transition-colors"></div>
+                <h3 className="text-xl font-black text-navy mb-2 relative z-10">{ref.name}</h3>
+                <p className="text-teal font-bold text-xs mb-1 uppercase tracking-wider relative z-10">{ref.designation}</p>
+                <p className="text-slate-500 font-bold text-[10px] mb-6 uppercase tracking-widest border-b border-slate-100 pb-4">{ref.institution}</p>
+                
+                <div className="space-y-3 relative z-10">
+                  <div className="flex items-center gap-3 text-slate-600 hover:text-navy transition-colors group/link">
+                    <div className="w-8 h-8 bg-light-gray rounded-lg flex items-center justify-center text-teal group-hover/link:bg-teal group-hover/link:text-white transition-all">
+                      <FaPhone size={12} />
+                    </div>
+                    <span className="text-xs font-black">{ref.contact}</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-slate-600 hover:text-navy transition-colors group/link">
+                    <div className="w-8 h-8 bg-light-gray rounded-lg flex items-center justify-center text-teal group-hover/link:bg-teal group-hover/link:text-white transition-all">
+                      <FaEnvelope size={12} />
+                    </div>
+                    <span className="text-xs font-black truncate">{ref.email}</span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </section>
       </div>

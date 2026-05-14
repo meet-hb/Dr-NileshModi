@@ -250,3 +250,60 @@ export const projects = [
     details: "Dynamic portal covering rehabilitation & resettlement of citizens; Tools: PHP, MySQL, Flash"
   }
 ];
+
+export const personalDetails = {
+  dob: "25th October 1979",
+  nationality: "Indian",
+  maritalStatus: "Married",
+  languages: ["English", "Hindi", "Gujarati"],
+  hobbies: ["Reading", "Travelling", "Swimming"],
+  address: "A-801, Shlok Parisar, Gota-Devnagar Gam Road, Gota, Ahmedabad - 382481"
+};
+
+export const references = [
+  {
+    name: "Prof. (Dr.) Ami Upadhyay",
+    designation: "Vice Chancellor",
+    institution: "Dr. Babasaheb Ambedkar Open University, Ahmedabad",
+    contact: "+91 98795 55449",
+    email: "ami.upadhyay@baou.edu.in"
+  },
+  {
+    name: "Prof. (Dr.) V.R. Rathod",
+    designation: "Ex-Acting Vice Chancellor & Ex-Dean (Science)",
+    institution: "Bhavnagar University",
+    contact: "+91 94269 18396",
+    email: "profvrr@rediffmail.com"
+  },
+  {
+    name: "Prof. (Dr.) Arvind Shah",
+    designation: "Professor & Head, Dept. of Computer Science",
+    institution: "Georgia Southwestern State University, USA",
+    contact: "+1 (229) 931-2114",
+    email: "arvind.shah@gsw.edu"
+  },
+  {
+    name: "Prof. (Dr.) Kalpdrum Passi",
+    designation: "Chair, Dept. of Math & Computer Science",
+    institution: "Laurentian University, Ontario, Canada",
+    contact: "(705) 675-1151 x2345",
+    email: "kpassi@cs.laurentian.ca"
+  },
+  {
+    name: "Prof. (Dr.) P. Thrimurthy",
+    designation: "Past President, CSI; President, Sriji Vidhyapeeth",
+    institution: "Andhra Pradesh",
+    contact: "+91 94409 42418",
+    email: "profpt@rediffmail.com"
+  },
+  {
+    name: "Prof. (Dr.) Satyen Parikh",
+    designation: "Pro Vice Chancellor & Executive Dean, FCA",
+    institution: "Ganpat University, Ahmedabad",
+    contact: "+91 98251 06397",
+    email: "satyen.parikh@ganpatuniversity.ac.in"
+  }
+];
+
+export const declaration = "I hereby declare that the information provided above is accurate and true to the best of my knowledge.";
+
