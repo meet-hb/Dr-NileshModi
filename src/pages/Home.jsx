@@ -136,7 +136,6 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
-
       {/* EXECUTIVE SUMMARY */}
       <section id="summary" className="py-16 md:py-20 bg-white relative">
         <div className="container mx-auto px-6 lg:px-12">
@@ -151,7 +150,6 @@ export default function Home() {
               <p className="mb-8 font-medium max-w-2xl text-dark leading-relaxed">
                 {personalInfo.summary}
               </p>
-
               <div className="flex flex-wrap gap-4 mb-10">
                 <div className="px-4 py-2 bg-navy text-white rounded-lg text-xs font-bold flex items-center gap-2">
                   <span className=" ">ORCID:</span> {personalInfo.orcid}
@@ -187,7 +185,6 @@ export default function Home() {
                 ))}
               </div>
             </motion.div>
-
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
