@@ -13,7 +13,6 @@ const galleryPhotos = [
   { id: 7, title: "Cyber Security Workshop", category: "Events", date: "2024", location: "Virtual" },
   { id: 8, title: "Vibrant Gujarat Delegation", category: "Milestones", date: "2024", location: "Gift City" },
 ];
-
 export default function Gallery() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedImage, setSelectedImage] = useState(null);
