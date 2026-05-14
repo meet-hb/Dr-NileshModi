@@ -86,13 +86,11 @@ export default function Home() {
                 </motion.span>
               ))}
             </h1>
-
             <motion.div variants={itemVariants} className="flex items-center gap-6 mb-12">
               <div className="w-12 h-2 bg-teal shadow-[0_0_15px_rgba(255,153,51,0.5)]"></div>
               <p className="text-2xl md:text-3xl text-white font-bold leading-relaxed tracking-wide uppercase italic">
                 {personalInfo.title}
               </p>
-
             </motion.div>
             <motion.div variants={itemVariants} className="flex items-center gap-6 mb-12">
               <div className="w-12 h-2 bg-teal shadow-[0_0_15px_rgba(255,153,51,0.5)]"></div>
@@ -337,10 +335,10 @@ export default function Home() {
       <section className="py-16 bg-navy relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-teal/5 skew-x-12 translate-x-1/2"></div>
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-teal/10 rounded-full blur-[120px] -translate-x-1/2 translate-y-1/2"></div>
-        
+
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <SectionHeader title="Global Professional Networks" subtitle="Elite Memberships" dark />
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
             {memberships.map((member, i) => {
               const getMembershipIcon = (name) => {
@@ -373,8 +371,8 @@ export default function Home() {
                         {member}
                       </span>
                       <div className="mt-3 flex items-center gap-2">
-                         <div className="w-6 h-0.5 bg-teal/30 group-hover:w-10 group-hover:bg-teal transition-all duration-500"></div>
-                         <span className="text-[9px] font-black uppercase tracking-[0.2em] text-white/20 group-hover:text-white/40">Verified Member</span>
+                        <div className="w-6 h-0.5 bg-teal/30 group-hover:w-10 group-hover:bg-teal transition-all duration-500"></div>
+                        <span className="text-[9px] font-black uppercase tracking-[0.2em] text-white/20 group-hover:text-white/40">Verified Member</span>
                       </div>
                     </div>
                   </div>
