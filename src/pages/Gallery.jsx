@@ -18,15 +18,11 @@ export default function Gallery() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedImage, setSelectedImage] = useState(null);
   const [visibleCount, setVisibleCount] = useState(6);
-
   const categories = ['All', 'Events', 'Milestones', 'Speaking'];
-
   const filteredPhotos = activeCategory === 'All'
     ? galleryPhotos
     : galleryPhotos.filter(photo => photo.category.toLowerCase() === activeCategory.toLowerCase());
-
   const displayedPhotos = filteredPhotos.slice(0, visibleCount);
-
   return (
     <div>
       <PageHero
