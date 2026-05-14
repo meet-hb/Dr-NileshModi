@@ -11,7 +11,7 @@ export default function Research() {
           <span className="text-teal font-black uppercase tracking-[0.3em] text-xs mb-4 block">Academic Contribution</span>
           <h1 className="executive-heading text-5xl md:text-7xl text-navy tracking-tighter">Research <span className="text-teal">Impact</span></h1>
           <p className="text-xl text-slate-500 mt-8 max-w-3xl leading-relaxed font-medium">
-            Advancing the field of Information Security and AI through peer-reviewed publications, 
+            Advancing the field of Information Security and AI through peer-reviewed publications,
             patented innovations, and doctoral supervision.
           </p>
         </div>
@@ -19,7 +19,7 @@ export default function Research() {
         {/* Stats Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-32">
           {researchStats.stats.map((stat, i) => (
-            <motion.div 
+            <motion.div
               key={i}
               whileHover={{ y: -10 }}
               className="bg-white border-b-4 border-teal p-12 text-center shadow-xl shadow-slate-100/50"
@@ -32,7 +32,7 @@ export default function Research() {
 
         {/* Patent & Supervision */}
         <div className="grid lg:grid-cols-2 gap-20 items-start mb-32">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -48,7 +48,6 @@ export default function Research() {
               <div className="w-16 h-1 bg-teal"></div>
             </div>
           </motion.div>
-
           <div className="space-y-12">
             <div className="professional-card p-12">
               <div className="w-12 h-12 bg-teal/10 rounded-sm flex items-center justify-center text-teal mb-6">
@@ -56,28 +55,26 @@ export default function Research() {
               </div>
               <h3 className="text-2xl font-black text-navy mb-4">Scholarly Supervision</h3>
               <p className="text-slate-500 font-medium leading-relaxed">
-                Successfully supervised <span className="text-navy font-black">{researchStats.scholars}</span>. 
+                Successfully supervised <span className="text-navy font-black">{researchStats.scholars}</span>.
                 Providing mentorship and guidance to the next generation of researchers in Cyber Security and Distributed Systems.
               </p>
             </div>
-
             <div className="professional-card p-12">
               <div className="w-12 h-12 bg-teal/10 rounded-sm flex items-center justify-center text-teal mb-6">
                 <FaBookOpen size={24} />
               </div>
               <h3 className="text-2xl font-black text-navy mb-4">Total Publication Output</h3>
               <p className="text-slate-500 font-medium leading-relaxed">
-                Authored and co-authored over <span className="text-navy font-black">{researchStats.totalPublications}+</span> scientific works 
+                Authored and co-authored over <span className="text-navy font-black">{researchStats.totalPublications}+</span> scientific works
                 in leading international journals and prestigious conferences.
               </p>
             </div>
           </div>
         </div>
-
         {/* Call to action */}
         <section className="py-20 bg-light-gray rounded-sm text-center">
-           <h2 className="text-2xl font-black text-navy uppercase tracking-widest mb-8">Explore full Research Repository</h2>
-           <button className="btn-teal">Request Research Portfolio</button>
+          <h2 className="text-2xl font-black text-navy uppercase tracking-widest mb-8">Explore full Research Repository</h2>
+          <button className="btn-teal">Request Research Portfolio</button>
         </section>
       </div>
     </div>
