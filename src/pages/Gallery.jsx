@@ -4,14 +4,21 @@ import { FaSearchPlus, FaImage, FaMapMarkerAlt } from 'react-icons/fa';
 import PageHero from '../components/PageHero';
 
 const galleryPhotos = [
-  { id: 1, title: "NAAC A++ Felicitation", category: "Milestones", date: "2022", location: "BAOU Campus" },
-  { id: 2, title: "International IT Summit", category: "Speaking", date: "2023", location: "Gandhinagar" },
-  { id: 3, title: "Academic Council Session", category: "Milestones", date: "2024", location: "Ahmedabad" },
-  { id: 4, title: "Expert Lecture at GTU", category: "Speaking", date: "2024", location: "GTU" },
-  { id: 5, title: "SWAYAM Course Launch", category: "Events", date: "2023", location: "New Delhi" },
-  { id: 6, title: "Convocation Ceremony", category: "Events", date: "2022", location: "BAOU" },
-  { id: 7, title: "Cyber Security Workshop", category: "Events", date: "2024", location: "Virtual" },
-  { id: 8, title: "Vibrant Gujarat Delegation", category: "Milestones", date: "2024", location: "Gift City" },
+  { id: 1, title: "NAAC A++ Felicitation", category: "Milestones", date: "2022", location: "BAOU Campus", src: "/image1.JPG" },
+  { id: 2, title: "International IT Summit", category: "Speaking", date: "2023", location: "Gandhinagar", src: "/image2.JPG" },
+  { id: 3, title: "Academic Council Session", category: "Milestones", date: "2024", location: "Ahmedabad", src: "/image3.JPG" },
+  { id: 4, title: "Expert Lecture at GTU", category: "Speaking", date: "2024", location: "GTU", src: "/image4.JPG" },
+  { id: 5, title: "SWAYAM Course Launch", category: "Events", date: "2023", location: "New Delhi", src: "/image5.JPG" },
+  { id: 6, title: "Convocation Ceremony", category: "Events", date: "2022", location: "BAOU", src: "/image6.JPG" },
+  { id: 7, title: "Cyber Security Workshop", category: "Events", date: "2024", location: "Virtual", src: "/image7.JPG" },
+  { id: 8, title: "Vibrant Gujarat Delegation", category: "Milestones", date: "2024", location: "Gift City", src: "/image1.JPG" },
+  { id: 9, title: "Institutional Leadership", category: "Milestones", date: "2024", location: "Ahmedabad", src: "/image8.JPG" },
+  { id: 10, title: "Global Tech Summit", category: "Speaking", date: "2023", location: "New Delhi", src: "/image9.JPG" },
+  { id: 11, title: "Quality Assurance Meet", category: "Events", date: "2024", location: "Gandhinagar", src: "/drnileshmodi.png" },
+  { id: 12, title: "Digital Learning Forum", category: "Speaking", date: "2024", location: "Virtual", src: "/image10.JPG" },
+  { id: 13, title: "Research Symposium", category: "Events", date: "2023", location: "BAOU", src: "/image1.JPG" },
+  { id: 14, title: "Award Ceremony", category: "Milestones", date: "2024", location: "Ahmedabad", src: "/image2.JPG" },
+  { id: 15, title: "Education Tech Expo", category: "Speaking", date: "2024", location: "Mumbai", src: "/image3.JPG" },
 ];
 export default function Gallery() {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -72,7 +79,7 @@ export default function Gallery() {
                 onClick={() => setSelectedImage(photo)}
               >
                 <div className="bg-light-gray aspect-[3/4] relative">
-                  <img src="/photo-01.jpg" alt={photo.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+                  <img src={photo.src} alt={photo.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-navy/80 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-10 transform translate-y-4 group-hover:translate-y-0">
                     <div className="flex items-center gap-3 mb-4">
@@ -133,7 +140,7 @@ export default function Gallery() {
                   &times;
                 </button>
                 <div className="bg-white rounded-[2rem] overflow-hidden shadow-2xl border border-white/10">
-                  <img src="/photo-01.jpg" alt={selectedImage.title} className="w-full h-auto max-h-[70vh] object-contain bg-light-gray" />
+                  <img src={selectedImage.src} alt={selectedImage.title} className="w-full h-auto max-h-[70vh] object-contain bg-light-gray" />
                   <div className="p-10 bg-white">
                     <div className="flex items-center gap-4 mb-4">
                       <span className="px-4 py-1 bg-teal/10 text-teal text-[10px] font-black uppercase tracking-[0.2em] rounded-full">{selectedImage.category}</span>
