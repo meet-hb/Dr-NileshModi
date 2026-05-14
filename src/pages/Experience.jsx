@@ -15,23 +15,22 @@ export default function Experience() {
         {/* Experience Timeline */}
         <div className="space-y-16 relative mb-40">
           {experience.map((exp, i) => (
-            <motion.div 
+            <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="professional-card p-12"
-            >
+              className="professional-card p-12">
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
                 <div>
                   <span className="text-teal font-black text-sm tracking-widest mb-2 block uppercase">{exp.period}</span>
                   <h3 className="text-3xl md:text-4xl font-black text-navy tracking-tighter">{exp.title}</h3>
                 </div>
                 <div className="text-right">
-                   <h4 className="text-xl text-slate-400 font-bold uppercase tracking-widest text-xs mb-2">{exp.institution}</h4>
-                   <div className="flex items-center gap-2 text-slate-300 font-black text-[10px] uppercase tracking-widest md:justify-end">
-                      <FaMapMarkerAlt className="text-teal" /> {exp.location}
-                   </div>
+                  <h4 className="text-xl text-slate-400 font-bold uppercase tracking-widest text-xs mb-2">{exp.institution}</h4>
+                  <div className="flex items-center gap-2 text-slate-300 font-black text-[10px] uppercase tracking-widest md:justify-end">
+                    <FaMapMarkerAlt className="text-teal" /> {exp.location}
+                  </div>
                 </div>
               </div>
 
@@ -61,26 +60,26 @@ export default function Experience() {
         {/* Projects Section */}
         <section>
           <div className="flex items-center gap-3 mb-16">
-             <div className="w-10 h-2 bg-teal"></div>
-             <h2 className="text-3xl font-black text-navy uppercase tracking-widest">Notable Projects</h2>
+            <div className="w-10 h-2 bg-teal"></div>
+            <h2 className="text-3xl font-black text-navy uppercase tracking-widest">Notable Projects</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 whileHover={{ y: -10 }}
                 className="bg-navy p-10 text-white rounded-sm border-t-4 border-teal flex flex-col justify-between h-full"
               >
                 <div>
-                   <div className="flex justify-between items-start mb-8">
-                      <div className="p-3 bg-teal/10 rounded-sm text-teal">
-                        <FaProjectDiagram size={20} />
-                      </div>
-                      <span className="text-[10px] font-black uppercase text-white/30 tracking-widest">{project.period}</span>
-                   </div>
-                   <h3 className="text-xl font-black mb-2 tracking-tight">{project.name}</h3>
-                   <p className="text-teal font-bold text-xs uppercase tracking-wider mb-6">{project.client}</p>
-                   <p className="text-sm text-white/50 leading-relaxed mb-8">{project.details}</p>
+                  <div className="flex justify-between items-start mb-8">
+                    <div className="p-3 bg-teal/10 rounded-sm text-teal">
+                      <FaProjectDiagram size={20} />
+                    </div>
+                    <span className="text-[10px] font-black uppercase text-white/30 tracking-widest">{project.period}</span>
+                  </div>
+                  <h3 className="text-xl font-black mb-2 tracking-tight">{project.name}</h3>
+                  <p className="text-teal font-bold text-xs uppercase tracking-wider mb-6">{project.client}</p>
+                  <p className="text-sm text-white/50 leading-relaxed mb-8">{project.details}</p>
                 </div>
                 <div className="pt-6 border-t border-white/5 flex items-center justify-between group cursor-pointer">
                   <span className="text-[10px] font-black uppercase tracking-widest group-hover:text-teal transition-colors">Case Study Details</span>
