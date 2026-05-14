@@ -81,7 +81,6 @@ export default function About() {
             </motion.div>
           </div>
         </section>
-
         {/* Core Competencies Grid */}
         <section className="mb-24">
           <div className="text-center mb-12">
@@ -117,7 +116,6 @@ export default function About() {
             })}
           </div>
         </section>
-
         {/* Professional Experience - TIMELINE */}
         <section className="mb-24">
           <div className="flex items-center gap-4 mb-16">
