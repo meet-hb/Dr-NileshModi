@@ -474,7 +474,7 @@ export default function Home() {
               whileHover={{ scale: 0.98 }}
               className="md:col-span-2 lg:col-span-3 md:row-span-2 bg-navy rounded-[2rem] overflow-hidden relative group shadow-2xl"
             >
-              <img src="/photo-01.jpg" alt="Highlight" className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000" />
+              <img src="/image1.JPG" alt="Highlight" className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000" />
               <div className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent p-12 flex flex-col justify-end">
                 <span className="text-teal font-black text-[10px] uppercase tracking-widest mb-4">Key Milestone</span>
                 <h3 className="text-3xl font-black text-white">NAAC A++ Accreditation Ceremony</h3>
