@@ -53,7 +53,6 @@ export default function About() {
                 ))}
               </div>
             </motion.div>
-
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -354,7 +353,7 @@ export default function About() {
                 <h3 className="text-xl font-black text-navy mb-2 relative z-10">{ref.name}</h3>
                 <p className="text-teal font-bold text-xs mb-1 uppercase tracking-wider relative z-10">{ref.designation}</p>
                 <p className="text-slate-500 font-bold text-[10px] mb-6 uppercase tracking-widest border-b border-slate-100 pb-4">{ref.institution}</p>
-                
+
                 <div className="space-y-3 relative z-10">
                   <div className="flex items-center gap-3 text-slate-600 hover:text-navy transition-colors group/link">
                     <div className="w-8 h-8 bg-light-gray rounded-lg flex items-center justify-center text-teal group-hover/link:bg-teal group-hover/link:text-white transition-all">
