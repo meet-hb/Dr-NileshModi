@@ -11,7 +11,6 @@ export default function Experience() {
           <span className="text-teal font-black uppercase tracking-[0.3em] text-xs mb-4 block">Professional Track Record</span>
           <h1 className="executive-heading text-5xl md:text-7xl text-navy tracking-tighter">Work <span className="text-teal">Experience</span></h1>
         </div>
-
         {/* Experience Timeline */}
         <div className="space-y-16 relative mb-40">
           {experience.map((exp, i) => (
@@ -33,7 +32,6 @@ export default function Experience() {
                   </div>
                 </div>
               </div>
-
               {exp.concurrentRoles && (
                 <div className="mb-8 p-6 bg-light-gray/50 rounded-sm">
                   <p className="text-[10px] font-black uppercase text-slate-400 tracking-[0.2em] mb-4">Core Concurrent Roles</p>
@@ -44,7 +42,6 @@ export default function Experience() {
                   </div>
                 </div>
               )}
-
               <div className="space-y-4 max-w-4xl">
                 {exp.highlights?.map((h, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -56,7 +53,6 @@ export default function Experience() {
             </motion.div>
           ))}
         </div>
-
         {/* Projects Section */}
         <section>
           <div className="flex items-center gap-3 mb-16">

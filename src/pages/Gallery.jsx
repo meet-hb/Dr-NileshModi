@@ -54,7 +54,6 @@ export default function Gallery() {
             ))}
           </div>
         </div>
-
         {/* Filtered Grid */}
         <motion.div
           layout
