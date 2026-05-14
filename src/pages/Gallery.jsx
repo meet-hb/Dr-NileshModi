@@ -73,7 +73,6 @@ export default function Gallery() {
               >
                 <div className="bg-light-gray aspect-[3/4] relative">
                   <img src="/photo-01.jpg" alt={photo.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
-
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-navy/80 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-10 transform translate-y-4 group-hover:translate-y-0">
                     <div className="flex items-center gap-3 mb-4">
@@ -95,7 +94,6 @@ export default function Gallery() {
             ))}
           </AnimatePresence>
         </motion.div>
-
         {/* Load More Button */}
         {visibleCount < filteredPhotos.length && (
           <div className="flex justify-center mt-20">
@@ -151,7 +149,6 @@ export default function Gallery() {
             </motion.div>
           )}
         </AnimatePresence>
-
       </div>
     </div>
   );
