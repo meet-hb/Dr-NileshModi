@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { 
-  FaGraduationCap, FaAward, FaArrowRight, FaShieldAlt, 
+import {
+  FaGraduationCap, FaAward, FaArrowRight, FaShieldAlt,
   FaBrain, FaLock, FaCloud, FaTasks, FaNetworkWired, FaDatabase, FaMicroscope, FaUniversity,
   FaBullseye, FaLightbulb, FaGlobeAmericas, FaHandshake, FaCheckCircle, FaRocket, FaPuzzlePiece,
   FaChalkboardTeacher, FaHistory, FaBuilding, FaBriefcase, FaCertificate, FaUsers
@@ -15,20 +15,18 @@ import PageHero from '../components/PageHero';
 
 export default function About() {
   const { aboutMe } = personalInfo;
-
   return (
     <div className="bg-white">
-      <PageHero 
-        title="Scholarly Profile" 
+      <PageHero
+        title="Scholarly Profile"
         subtitle="Bridging Academic Vision with Technological Execution"
         breadcrumbs={[{ name: 'About', href: '/about' }]}
       />
-
       <div className="container mx-auto px-6 lg:px-12 py-16">
         {/* Executive Summary */}
         <section className="mb-24">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -42,44 +40,44 @@ export default function About() {
                 {personalInfo.summary}
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                 {[
-                   { label: "NAAC Grade", value: "A++ (3.55)" },
-                   { label: "Publications", value: "105+" },
-                   { label: "Ph.D. Scholars", value: "18" }
-                 ].map((stat, i) => (
-                   <div key={i} className="bg-light-gray p-6 rounded-2xl border-b-4 border-teal">
-                     <span className="text-xs font-black text-slate-500 uppercase tracking-widest block mb-1">{stat.label}</span>
-                     <span className="text-2xl font-black text-navy">{stat.value}</span>
-                   </div>
-                 ))}
+                {[
+                  { label: "NAAC Grade", value: "A++ (3.55)" },
+                  { label: "Publications", value: "105+" },
+                  { label: "Ph.D. Scholars", value: "18" }
+                ].map((stat, i) => (
+                  <div key={i} className="bg-light-gray p-6 rounded-2xl border-b-4 border-teal">
+                    <span className="text-xs font-black text-slate-500 uppercase tracking-widest block mb-1">{stat.label}</span>
+                    <span className="text-2xl font-black text-navy">{stat.value}</span>
+                  </div>
+                ))}
               </div>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="lg:col-span-5"
             >
-               <div className="bg-navy p-10 rounded-[3rem] text-white shadow-2xl relative overflow-hidden group">
-                  <div className="absolute -right-6 -top-6 text-teal/10 text-9xl group-hover:rotate-12 transition-transform duration-700">
-                    <FaBullseye />
-                  </div>
-                  <h3 className="text-2xl font-black mb-8 flex items-center gap-4 relative z-10">
-                    <FaBullseye className="text-teal" /> Vision & Impact
-                  </h3>
-                  <p className="text-white/80 font-medium mb-8 relative z-10 leading-relaxed">
-                    {aboutMe.intro}
-                  </p>
-                  <ul className="space-y-4 relative z-10">
-                    {aboutMe.whatIDo.slice(0, 4).map((item, i) => (
-                      <li key={i} className="flex items-start gap-3 text-white/70 group-hover:text-white transition-colors">
-                        <FaCheckCircle className="text-teal mt-1 shrink-0" />
-                        <span className="font-bold text-xs leading-relaxed">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-               </div>
+              <div className="bg-navy p-10 rounded-[3rem] text-white shadow-2xl relative overflow-hidden group">
+                <div className="absolute -right-6 -top-6 text-teal/10 text-9xl group-hover:rotate-12 transition-transform duration-700">
+                  <FaBullseye />
+                </div>
+                <h3 className="text-2xl font-black mb-8 flex items-center gap-4 relative z-10">
+                  <FaBullseye className="text-teal" /> Vision & Impact
+                </h3>
+                <p className="text-white/80 font-medium mb-8 relative z-10 leading-relaxed">
+                  {aboutMe.intro}
+                </p>
+                <ul className="space-y-4 relative z-10">
+                  {aboutMe.whatIDo.slice(0, 4).map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-white/70 group-hover:text-white transition-colors">
+                      <FaCheckCircle className="text-teal mt-1 shrink-0" />
+                      <span className="font-bold text-xs leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </motion.div>
           </div>
         </section>
@@ -87,8 +85,8 @@ export default function About() {
         {/* Core Competencies Grid */}
         <section className="mb-24">
           <div className="text-center mb-12">
-             <span className="text-teal font-black uppercase tracking-[0.3em] text-xs mb-4 block">Expertise</span>
-             <h2 className="executive-heading text-4xl text-navy">Core <span className="text-teal">Competencies</span></h2>
+            <span className="text-teal font-black uppercase tracking-[0.3em] text-xs mb-4 block">Expertise</span>
+            <h2 className="executive-heading text-4xl text-navy">Core <span className="text-teal">Competencies</span></h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {competencies.map((comp, i) => {
@@ -106,7 +104,7 @@ export default function About() {
               };
 
               return (
-                <motion.div 
+                <motion.div
                   key={i}
                   whileHover={{ y: -5 }}
                   className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-5 group hover:border-teal/30 hover:shadow-xl transition-all duration-300"
@@ -124,13 +122,13 @@ export default function About() {
         {/* Professional Experience - TIMELINE */}
         <section className="mb-24">
           <div className="flex items-center gap-4 mb-16">
-             <div className="w-12 h-2 bg-teal"></div>
-             <h2 className="text-3xl font-black text-navy uppercase tracking-widest">Professional Experience</h2>
+            <div className="w-12 h-2 bg-teal"></div>
+            <h2 className="text-3xl font-black text-navy uppercase tracking-widest">Professional Experience</h2>
           </div>
-          
+
           <div className="space-y-12">
             {experience.map((exp, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -138,7 +136,7 @@ export default function About() {
                 className="relative pl-8 md:pl-12 border-l-4 border-slate-100 pb-12 last:pb-0"
               >
                 <div className="absolute -left-[14px] top-0 w-6 h-6 bg-white border-4 border-teal rounded-full z-10"></div>
-                
+
                 <div className="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-[0_20px_50px_-20px_rgba(0,0,0,0.05)] border border-slate-50 hover:border-teal/20 transition-colors">
                   <div className="flex flex-col md:flex-row justify-between items-start mb-8 gap-4">
                     <div>
@@ -152,7 +150,7 @@ export default function About() {
                       </div>
                     </div>
                     <div className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2">
-                       <FaHistory /> {exp.location}
+                      <FaHistory /> {exp.location}
                     </div>
                   </div>
 
@@ -162,8 +160,8 @@ export default function About() {
                       <div className="grid sm:grid-cols-2 gap-3">
                         {exp.concurrentRoles.map((role, idx) => (
                           <div key={idx} className="flex items-center gap-2 text-xs font-bold text-slate-600">
-                             <div className="w-1.5 h-1.5 bg-teal rounded-full"></div>
-                             {role}
+                            <div className="w-1.5 h-1.5 bg-teal rounded-full"></div>
+                            {role}
                           </div>
                         ))}
                       </div>
@@ -191,8 +189,8 @@ export default function About() {
         <div className="grid lg:grid-cols-2 gap-12 mb-24">
           <section>
             <div className="flex items-center gap-3 mb-10">
-               <div className="w-10 h-2 bg-teal"></div>
-               <h2 className="text-2xl font-black text-navy uppercase tracking-widest">Academic Background</h2>
+              <div className="w-10 h-2 bg-teal"></div>
+              <h2 className="text-2xl font-black text-navy uppercase tracking-widest">Academic Background</h2>
             </div>
             <div className="space-y-6">
               {education.map((edu, i) => (
@@ -211,8 +209,8 @@ export default function About() {
 
           <section>
             <div className="flex items-center gap-3 mb-10">
-               <div className="w-10 h-2 bg-teal"></div>
-               <h2 className="text-2xl font-black text-navy uppercase tracking-widest">Professional Certifications</h2>
+              <div className="w-10 h-2 bg-teal"></div>
+              <h2 className="text-2xl font-black text-navy uppercase tracking-widest">Professional Certifications</h2>
             </div>
             <div className="grid gap-6">
               {certifications.map((cert, i) => (
@@ -237,10 +235,10 @@ export default function About() {
         {/* Achievements Section - RESTORED PREVIOUS UI */}
         <section className="py-16 bg-light-gray/30 rounded-[3rem] overflow-hidden relative">
           <div className="text-center mb-12 px-6">
-             <span className="text-teal font-black uppercase tracking-[0.3em] text-xs mb-4 block">Recognition</span>
-             <h2 className="executive-heading text-4xl text-navy">Honors & <span className="text-teal">Awards</span></h2>
+            <span className="text-teal font-black uppercase tracking-[0.3em] text-xs mb-4 block">Recognition</span>
+            <h2 className="executive-heading text-4xl text-navy">Honors & <span className="text-teal">Awards</span></h2>
           </div>
-          
+
           <div className="max-w-5xl mx-auto px-6">
             <Swiper
               slidesPerView={1}
