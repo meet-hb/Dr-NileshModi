@@ -124,7 +124,6 @@ export default function About() {
             <div className="w-12 h-2 bg-teal"></div>
             <h2 className="text-3xl font-black text-navy uppercase tracking-widest">Professional Experience</h2>
           </div>
-
           <div className="space-y-12">
             {experience.map((exp, i) => (
               <motion.div
@@ -132,10 +131,8 @@ export default function About() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="relative pl-8 md:pl-12 border-l-4 border-slate-100 pb-12 last:pb-0"
-              >
+                className="relative pl-8 md:pl-12 border-l-4 border-slate-100 pb-12 last:pb-0">
                 <div className="absolute -left-[14px] top-0 w-6 h-6 bg-white border-4 border-teal rounded-full z-10"></div>
-
                 <div className="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-[0_20px_50px_-20px_rgba(0,0,0,0.05)] border border-slate-50 hover:border-teal/20 transition-colors">
                   <div className="flex flex-col md:flex-row justify-between items-start mb-8 gap-4">
                     <div>
@@ -152,7 +149,6 @@ export default function About() {
                       <FaHistory /> {exp.location}
                     </div>
                   </div>
-
                   {exp.concurrentRoles && (
                     <div className="mb-10 p-6 bg-light-gray/50 rounded-2xl border-l-4 border-navy">
                       <h4 className="text-xs font-black text-navy uppercase tracking-widest mb-4">Concurrent Directorships:</h4>
@@ -166,7 +162,6 @@ export default function About() {
                       </div>
                     </div>
                   )}
-
                   {exp.highlights && (
                     <div className="space-y-4">
                       <h4 className="text-xs font-black text-navy uppercase tracking-widest mb-2">Key Responsibilities & Achievements:</h4>
@@ -183,7 +178,6 @@ export default function About() {
             ))}
           </div>
         </section>
-
         {/* Education & Certifications */}
         <div className="grid lg:grid-cols-2 gap-12 mb-24">
           <section>
@@ -205,7 +199,6 @@ export default function About() {
               ))}
             </div>
           </section>
-
           <section>
             <div className="flex items-center gap-3 mb-10">
               <div className="w-10 h-2 bg-teal"></div>
@@ -230,14 +223,12 @@ export default function About() {
             </div>
           </section>
         </div>
-
         {/* Achievements Section - RESTORED PREVIOUS UI */}
         <section className="py-16 bg-light-gray/30 rounded-[3rem] overflow-hidden relative">
           <div className="text-center mb-12 px-6">
             <span className="text-teal font-black uppercase tracking-[0.3em] text-xs mb-4 block">Recognition</span>
             <h2 className="executive-heading text-4xl text-navy">Honors & <span className="text-teal">Awards</span></h2>
           </div>
-
           <div className="max-w-5xl mx-auto px-6">
             <Swiper
               slidesPerView={1}
