@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence, useScroll } from 'framer-motion';
 import { 
-  FaEnvelope, FaPhone, FaMapMarkerAlt, FaGlobe, FaLinkedin 
+  FaEnvelope, FaPhone, FaMapMarkerAlt, FaGlobe, FaLinkedin, FaInstagram, FaFacebook
 } from 'react-icons/fa';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
 import ThreeBackground from './ThreeBackground';
@@ -119,9 +119,15 @@ export default function Layout({ children }) {
                 Distinguished Professor and Director with over 23 years of experience in Cyber Security, AI, and Academic Leadership.
               </p>
               <div className="flex gap-6">
-                <FaLinkedin className="hover:text-teal cursor-pointer transition-colors" size={20} />
-                <FaEnvelope className="hover:text-teal cursor-pointer transition-colors" size={20} />
-                <FaGlobe className="hover:text-teal cursor-pointer transition-colors" size={20} />
+                <a href={personalInfo.contact.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-teal cursor-pointer transition-colors">
+                  <FaInstagram size={20} />
+                </a>
+                <a href={personalInfo.contact.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-teal cursor-pointer transition-colors">
+                  <FaFacebook size={20} />
+                </a>
+                <a href={personalInfo.contact.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-teal cursor-pointer transition-colors">
+                  <FaLinkedin size={20} />
+                </a>
               </div>
             </div>
             <div className="md:pl-10">

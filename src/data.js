@@ -12,7 +12,10 @@ export const personalInfo = {
     website: "https://drnileshmodi.in",
     phone1: "+91 966 26 40 500",
     phone2: "+91 9978 40 40 44",
-    location: "Ahmedabad, Gujarat, Bharat"
+    location: "Ahmedabad, Gujarat, Bharat",
+    instagram: "https://instagram.com/",
+    facebook: "https://facebook.com/",
+    linkedin: "https://linkedin.com/in/drnileshmodi"
   },
   description: "Education Leader & Strategist | Driving Digital Learning & AI Innovation | Building Future-Ready Institutions",
   vidwan: "196935",
