@@ -480,7 +480,6 @@ export default function Home() {
                 <h3 className="text-3xl font-black text-white">NAAC A++ Accreditation Ceremony</h3>
               </div>
             </motion.div>
-
             {/* Sub Features */}
             <motion.div
               whileHover={{ scale: 1.02 }}
@@ -488,7 +487,6 @@ export default function Home() {
             >
               <img src="/drnileshmodi.png" alt="Profile" className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" />
             </motion.div>
-
             <motion.div
               whileHover={{ scale: 1.02 }}
               className="lg:col-span-2 bg-navy rounded-[2rem] overflow-hidden shadow-xl p-10 flex flex-col justify-center"
@@ -496,7 +494,6 @@ export default function Home() {
               <h4 className="text-teal font-black text-[10px] uppercase tracking-widest mb-4">Expertise</h4>
               <p className="text-white text-lg font-bold leading-tight">Leading Digital Transformation in Higher Education.</p>
             </motion.div>
-
             <motion.div
               whileHover={{ scale: 1.02 }}
               className="lg:col-span-1 bg-teal rounded-[2rem] overflow-hidden shadow-xl flex items-center justify-center p-6 text-center"
@@ -506,7 +503,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* FINAL CTA */}
       <section className="py-16 md:py-24 bg-white relative overflow-hidden">
         <div className="container mx-auto px-6 lg:px-12">

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaSearchPlus, FaImage, FaMapMarkerAlt } from 'react-icons/fa';
 import PageHero from '../components/PageHero';
-
 const galleryPhotos = [
   { id: 1, title: "NAAC A++ Felicitation", category: "Milestones", date: "2022", location: "BAOU Campus", src: "/image1.JPG" },
   { id: 2, title: "International IT Summit", category: "Speaking", date: "2023", location: "Gandhinagar", src: "/image2.JPG" },
