@@ -26,12 +26,11 @@ const speakingEvents = [
 export default function Speaking() {
   return (
     <div>
-      <PageHero 
-        title="Speaking Engagements" 
+      <PageHero
+        title="Speaking Engagements"
         subtitle="Sharing expertise on Cyber Security, AI, and Educational Leadership as a keynote speaker and panelist at national forums."
         breadcrumbs={[{ name: 'Speaking', href: '/speaking' }]}
       />
-
       <div className="container mx-auto px-6 lg:px-12 py-32">
         {/* Featured Speaking Cards */}
         <div className="grid md:grid-cols-3 gap-8 mb-32">
@@ -55,12 +54,12 @@ export default function Speaking() {
         {/* Recent Engagements */}
         <section>
           <div className="flex items-center gap-3 mb-16">
-             <div className="w-10 h-2 bg-teal"></div>
-             <h2 className="text-3xl font-black text-navy uppercase tracking-widest">Recent Events</h2>
+            <div className="w-10 h-2 bg-teal"></div>
+            <h2 className="text-3xl font-black text-navy uppercase tracking-widest">Recent Events</h2>
           </div>
           <div className="space-y-8">
             {speakingEvents.map((event, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 whileHover={{ x: 10 }}
                 className="professional-card p-12 border-l-8 border-teal"
@@ -69,8 +68,8 @@ export default function Speaking() {
                   <div>
                     <h3 className="text-2xl font-black text-navy mb-2 tracking-tighter">{event.title}</h3>
                     <div className="flex items-center gap-4 text-slate-400 text-sm font-bold uppercase tracking-widest">
-                       <div className="flex items-center gap-2"><FaMapMarkerAlt className="text-teal" /> {event.location}</div>
-                       <div className="flex items-center gap-2">• {event.date}</div>
+                      <div className="flex items-center gap-2"><FaMapMarkerAlt className="text-teal" /> {event.location}</div>
+                      <div className="flex items-center gap-2">• {event.date}</div>
                     </div>
                   </div>
                   <div className="text-right">
