@@ -2,11 +2,9 @@ import { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, Sphere, MeshDistortMaterial, Stars, PerspectiveCamera } from '@react-three/drei';
 import * as THREE from 'three';
-
 function SceneContent({ scrollY }) {
   const groupRef = useRef();
   const sphereRef = useRef();
-  
   // High-tech grid points
   const points = useMemo(() => {
     const p = [];
@@ -19,7 +17,6 @@ function SceneContent({ scrollY }) {
     }
     return p;
   }, []);
-
   const lines = useMemo(() => {
     const l = [];
     for (let i = 0; i < 100; i++) {
@@ -31,11 +28,9 @@ function SceneContent({ scrollY }) {
     }
     return l;
   }, [points]);
-
   const lineGeometry = useMemo(() => {
     return new THREE.BufferGeometry().setFromPoints(lines);
   }, [lines]);
-
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
     if (groupRef.current) {
@@ -47,11 +42,9 @@ function SceneContent({ scrollY }) {
       sphereRef.current.distort = 0.3 + Math.sin(time * 0.5) * 0.1;
     }
   });
-
   return (
     <group ref={groupRef}>
       <Stars radius={100} depth={50} count={3000} factor={4} saturation={0} fade speed={1} />
-      
       {/* Floating Modern Orb */}
       <Float speed={1.5} rotationIntensity={1} floatIntensity={1}>
         <mesh position={[8, 4, -10]}>
@@ -68,7 +61,6 @@ function SceneContent({ scrollY }) {
           />
         </mesh>
       </Float>
-
       {/* Connectivity Network */}
       <group>
         {points.map((p, i) => (
@@ -81,14 +73,12 @@ function SceneContent({ scrollY }) {
           <lineBasicMaterial color="#FF9933" transparent opacity={0.03} />
         </lineSegments>
       </group>
-
       <ambientLight intensity={1} />
       <directionalLight position={[10, 10, 10]} intensity={1} color="#ffffff" />
       <pointLight position={[-10, -10, -10]} intensity={0.5} color="#FF9933" />
     </group>
   );
 }
-
 export default function ThreeBackground({ scrollY }) {
   return (
     <div className="fixed inset-0 -z-10">
