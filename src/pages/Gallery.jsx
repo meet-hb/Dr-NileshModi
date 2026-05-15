@@ -114,7 +114,6 @@ export default function Gallery() {
             </button>
           </div>
         )}
-
         {/* Lightbox Modal */}
         <AnimatePresence>
           {selectedImage && (

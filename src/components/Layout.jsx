@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence, useScroll } from 'framer-motion';
-import { 
+import {
   FaEnvelope, FaPhone, FaMapMarkerAlt, FaGlobe, FaLinkedin, FaInstagram, FaFacebook
 } from 'react-icons/fa';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
@@ -23,12 +23,10 @@ export default function Layout({ children }) {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
   useEffect(() => {
     window.scrollTo(0, 0);
     setIsMenuOpen(false);
   }, [location.pathname]);
-
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
@@ -38,52 +36,44 @@ export default function Layout({ children }) {
     { name: 'Media', href: '/media' },
     { name: 'Contact', href: '/contact' },
   ];
-
   const isHomePage = location.pathname === '/';
-
   return (
     <div className="min-h-screen flex flex-col text-slate-800 bg-white selection:bg-teal/30">
       <ThreeBackground scrollY={scrollValue} />
-      
       {/* Navigation */}
-      <nav 
+      <nav
         style={{ backgroundColor: scrolled || !isHomePage ? '#002e58' : 'transparent' }}
-        className={`fixed top-0 w-full z-[100] transition-all duration-300 ${
-          scrolled || !isHomePage 
-            ? 'py-4 shadow-[0_10px_30px_rgba(0,0,0,0.5)]' 
-            : 'py-8'
-        }`}
+        className={`fixed top-0 w-full z-[100] transition-all duration-300 ${scrolled || !isHomePage
+          ? 'py-4 shadow-[0_10px_30px_rgba(0,0,0,0.5)]'
+          : 'py-8'
+          }`}
       >
         <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center">
           <Link to="/" className="text-2xl font-black tracking-tighter text-white flex items-center gap-1 group">
             <span className="text-teal group-hover:rotate-[360deg] transition-transform duration-500">NK</span>
             <span className="opacity-90">MODI</span>
           </Link>
-
           <div className="hidden lg:flex gap-12">
             {navLinks.map((link) => (
-              <Link 
-                key={link.name} 
+              <Link
+                key={link.name}
                 to={link.href}
-                className={`text-[11px] font-bold uppercase tracking-[0.2em] transition-colors relative group ${
-                  location.pathname === link.href ? 'text-teal' : 'text-white/80 hover:text-teal'
-                }`}
+                className={`text-[11px] font-bold uppercase tracking-[0.2em] transition-colors relative group ${location.pathname === link.href ? 'text-teal' : 'text-white/80 hover:text-teal'
+                  }`}
               >
                 {link.name}
               </Link>
             ))}
           </div>
-
           <button className="text-white lg:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <HiMenuAlt3 size={32} />
           </button>
         </div>
       </nav>
-
       {/* Mobile Sidebar */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div 
+          <motion.div
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
@@ -93,12 +83,11 @@ export default function Layout({ children }) {
               <HiX size={40} />
             </button>
             {navLinks.map((link) => (
-              <Link 
-                key={link.name} 
+              <Link
+                key={link.name}
                 to={link.href}
-                className={`text-4xl font-black uppercase tracking-tighter transition-colors ${
-                  location.pathname === link.href ? 'text-teal' : 'text-white hover:text-teal'
-                }`}
+                className={`text-4xl font-black uppercase tracking-tighter transition-colors ${location.pathname === link.href ? 'text-teal' : 'text-white hover:text-teal'
+                  }`}
               >
                 {link.name}
               </Link>
@@ -106,9 +95,7 @@ export default function Layout({ children }) {
           </motion.div>
         )}
       </AnimatePresence>
-
       <main className="flex-grow">{children}</main>
-
       {/* FOOTER */}
       <footer className="bg-navy py-24 text-white">
         <div className="container mx-auto px-6 lg:px-12">
