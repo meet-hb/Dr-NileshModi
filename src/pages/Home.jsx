@@ -38,7 +38,6 @@ export default function Home() {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -48,12 +47,10 @@ export default function Home() {
       }
     }
   };
-
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
   };
-
   return (
     <>
       <ThreeBackground scrollY={scrollY} />
@@ -63,7 +60,6 @@ export default function Home() {
           <div className="absolute inset-0 bg-[url('/photo-01.jpg')] bg-cover bg-center grayscale brightness-50 opacity-30"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-navy/0 via-navy/50 to-navy"></div>
         </motion.div>
-
         <div className="container mx-auto px-6 lg:px-12 relative z-20">
           <motion.div
             variants={containerVariants}
@@ -74,7 +70,6 @@ export default function Home() {
             <motion.span variants={itemVariants} className="text-teal font-black uppercase tracking-[0.4em] text-sm mb-8 block">
               Distinguished Academic Leader
             </motion.span>
-
             <h1 className="text-4xl md:text-7xl font-black text-white leading-none mb-10 md:whitespace-nowrap">
               {personalInfo.name.split(' ').map((word, i) => (
                 <motion.span
@@ -97,9 +92,7 @@ export default function Home() {
               <p className="text-2xl md:text-3xl text-white font-bold leading-relaxed tracking-wide uppercase italic">
                 {personalInfo.description}
               </p>
-
             </motion.div>
-
             <motion.div variants={itemVariants} className="flex flex-wrap gap-8">
               <Link to="/about" className="btn-teal group flex items-center gap-3">
                 Explore Profile <FaArrowRight className="group-hover:translate-x-2 transition-transform" />
@@ -110,7 +103,6 @@ export default function Home() {
             </motion.div>
           </motion.div>
         </div>
-
         {/* Scroll Indicator - Modern Mouse */}
         <motion.div
           initial={{ opacity: 0 }}

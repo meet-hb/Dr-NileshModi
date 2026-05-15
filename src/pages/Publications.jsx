@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { FaBookOpen, FaChartBar, FaQuoteLeft, FaFileAlt, FaExternalLinkAlt } from 'react-icons/fa';
 import { researchStats } from '../data';
 import PageHero from '../components/PageHero';
-
 export default function Publications() {
   return (
     <div>
