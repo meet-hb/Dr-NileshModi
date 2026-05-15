@@ -6,7 +6,6 @@ import * as THREE from 'three';
 function AcademicParticles() {
   const groupRef = useRef();
   const icons = ['🎓', '📚', '💡', '🔬', '💻', '📝', '🏛️'];
-  
   const particleData = useMemo(() => {
     return Array.from({ length: 40 }, () => ({
       position: [
@@ -19,7 +18,6 @@ function AcademicParticles() {
       speed: Math.random() * 0.2 + 0.1
     }));
   }, []);
-
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
     if (groupRef.current) {
@@ -29,7 +27,6 @@ function AcademicParticles() {
       });
     }
   });
-
   return (
     <group ref={groupRef}>
       {particleData.map((data, i) => (
@@ -50,10 +47,9 @@ function AcademicParticles() {
     </group>
   );
 }
-
 export default function BentoBackground() {
   return (
-    <div 
+    <div
       className="absolute inset-0 z-0 pointer-events-none overflow-hidden"
       style={{
         background: 'linear-gradient(135deg, #002e58 0%, #002e58 40%, #ffffff 100%)'
