@@ -22,7 +22,6 @@ const speakingEvents = [
     audience: "University Administrators"
   }
 ];
-
 export default function Speaking() {
   return (
     <div>
