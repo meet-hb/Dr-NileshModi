@@ -75,8 +75,7 @@ export default function Gallery() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4 }}
                 className="relative group rounded-2xl overflow-hidden shadow-xl cursor-pointer"
-                onClick={() => setSelectedImage(photo)}
-              >
+                onClick={() => setSelectedImage(photo)}>
                 <div className="bg-light-gray aspect-[3/4] relative">
                   <img src={photo.src} alt={photo.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
                   {/* Overlay */}
