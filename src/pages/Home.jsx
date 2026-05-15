@@ -379,7 +379,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* FEATURED SECTIONS PREVIEW */}
       <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-6 lg:px-12">
@@ -409,7 +408,6 @@ export default function Home() {
                 </Link>
               </div>
             </motion.div>
-
             <motion.div
               whileHover={{ y: -20 }}
               initial={{ opacity: 0, y: 50 }}
@@ -432,7 +430,6 @@ export default function Home() {
                 </Link>
               </div>
             </motion.div>
-
             <motion.div
               whileHover={{ y: -20 }}
               initial={{ opacity: 0, y: 50 }}
@@ -458,7 +455,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* VISUAL JOURNEY - Bento Grid */}
       <section className="py-16 md:py-24 bg-navy relative overflow-hidden">
         <BentoBackground />
@@ -467,7 +463,6 @@ export default function Home() {
             <SectionHeader title="A Legacy in Motion" subtitle="Visual Journey" dark />
             <Link to="/gallery" className="btn-ghost mb-4 border-white/20 text-white">Open Full Archive</Link>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 h-auto md:h-[700px]">
             {/* Main Feature */}
             <motion.div

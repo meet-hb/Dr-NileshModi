@@ -15,7 +15,6 @@ export default function Research() {
             patented innovations, and doctoral supervision.
           </p>
         </div>
-
         {/* Stats Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-32">
           {researchStats.stats.map((stat, i) => (
@@ -29,7 +28,6 @@ export default function Research() {
             </motion.div>
           ))}
         </div>
-
         {/* Patent & Supervision */}
         <div className="grid lg:grid-cols-2 gap-20 items-start mb-32">
           <motion.div
